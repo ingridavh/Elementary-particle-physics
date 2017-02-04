@@ -1,0 +1,524 @@
+\documentclass[11pt]{article}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc} 
+\usepackage{amsmath}
+\usepackage{cancel}
+\usepackage{bbold}
+\usepackage{color}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+\usepackage{braket}
+\usepackage{float}
+\usepackage{lscape}
+\usepackage{multicol}
+\usepackage{tikz-feynman}
+\usepackage{tikz}
+\usepackage{subcaption}
+\usepackage{multicol}
+
+\usepackage{geometry}
+\geometry{legalpaper, margin=0.5in}
+
+\begin{document}
+\title{FYS4560 Project 1}
+\author{Ingrid A V Holm}
+\maketitle
+
+\begin{multicols}{2}
+\section{Standard model and beyond}
+\subsection*{- Allowed, forbidden and discovery processes}
+
+\begin{flushleft}
+We consider some processes to state whether they are allowed or not. Quantities that should be conserved include
+\begin{itemize}
+\item Lepton number
+\item Baryon number
+\item Energy and momentum
+\item Isospin
+\item Parity
+\item Charge parity
+\item Strong interactions are only between quarks and gluons.
+\item The Higgs boson interacts through the weak interaction, $Z, W^{\pm}$, or fermionic coupling?
+\end{itemize}
+\end{flushleft}
+
+\subsection*{Electron-positron collisions}
+
+\subsection{$e^+e^- \rightarrow q \bar{q} gg$}
+\begin{flushleft}
+Can interact through a combination of electroweak and strong interaction, but requires 4 vertices, so the crossection is small
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+\begin{feynman}[small] 
+\vertex (a) {\(e^-\)};
+\vertex [below right=of a] (b) ; 
+\vertex [below left=of b] (c) {\(e^+\)}; 
+\vertex [right=of b] (d); 
+\vertex [above right=of d] (e); 
+\vertex [above right=of e] (g) {\(q\)}; 
+\vertex [below=of g] (p) {\(g\)}; 
+\vertex [below right=of d] (f); 
+\vertex [below right=of f] (h) {\(\bar{q}\)};
+\vertex [above=of h] (p2) {\(g\)};
+\diagram{ (a) --[fermion] (b) --[fermion] (c); 
+(b) --[photon, edge label={\(\gamma\)}] (d) --[fermion] (e) --[fermion] (g);
+(e) --[gluon] (p); (d) --[fermion] (f) --[fermion] (h);
+(f) --[gluon] (p2)
+};
+\end{feynman}
+\end{tikzpicture}
+\begin{tikzpicture}
+\begin{feynman}[small] 
+\vertex (a) {\(e^-\)};
+\vertex [below right=of a] (b) ; 
+\vertex [below left=of b] (c) {\(e^+\)}; 
+\vertex [right=of b] (d); 
+\vertex [above right=of d] (e); 
+\vertex [above right=of e] (g) {\(q\)}; 
+\vertex [below right=of e] (p) ; 
+\vertex [below right=of p] (p1);
+\vertex [above right= of p] (p2);
+\vertex [below right=of d] (f); 
+\vertex [below right=of f] (h) {\(\bar{q}\)};
+\diagram{ (a) --[fermion] (b) --[fermion] (c); 
+(b) --[photon, edge label={\(\gamma\)}] (d) --[fermion] (e) --[fermion] (g);
+(e) --[gluon, edge label={\(g\)}] (p); (d) --[fermion] (h); (p) --[gluon, edge label={\(g\)}] (p1); (p) --[gluon,edge label={\(g\)}] (p2)
+};
+\end{feynman}
+\end{tikzpicture}
+\caption{Possible diagrams for $e^+e^- \rightarrow q \bar{q} gg$. The diagram on the left can also have both gluons on one 'arm'.}
+\end{figure}
+\end{flushleft}
+\subsection{$e^+e^- \rightarrow \tilde{l}^+ \tilde{l}^-$}
+Is this a supersymmetric lepton? This decay can happen through the electromagnetic interaction QED. \textit{Allowed.}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+\begin{feynman}[small]
+\vertex (a) {\(e^-\)}; \vertex [below right=of a] (b); \vertex [below left=of b] (c) {\(e^+\)};
+\vertex [right=of b] (d); \vertex [above right=of d] (e) {\( \tilde{l}^+\)}; \vertex [below right=of d] (f) {\( \tilde{l}^-\)};
+\diagram{ (a) -- [fermion] (b) --[fermion] (c); (b) --[photon, edge label= {\(\gamma, Z\)}] (d); (f) --[scalar] (d) --[scalar] (e);
+};
+\end{feynman}
+\end{tikzpicture}
+\caption{Diagram for $e^+e^- \rightarrow \tilde{l}^- \tilde{l}^+$.}
+\end{figure}
+
+\subsection{$e^+ e^- \rightarrow HH \gamma$}
+
+\subsection{$e^+ e^- \rightarrow ZZZ$}
+\subsection{$e^+e^- \rightarrow H \rightarrow gg$}
+Doesn't Higgs decay through the weak interaction? Is color conserved here?
+\subsection{$e^+e^- \rightarrow \nu \bar{\nu} \gamma \gamma$}
+Maybe possible with a four-jet.
+\subsection{$e^+e^- \rightarrow Y(3s) \rightarrow B^0 \bar{B}^0$}
+\subsection{$e^+ e^- \rightarrow Z^0 t \bar{t}$}
+
+\subsection*{Gluon-gluon collisions}
+
+\subsection{$gg \rightarrow e^+e^-$}
+\begin{flushleft}
+This interaction is possible, but requires four vertices so its cross section must be small. It is a combination of the electroweak and strong interaction.
+\end{flushleft}
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+\begin{feynman}[small]
+\vertex (a) {\(g\)}; \vertex [below right=of a] (b); \vertex [below left=of b] (c) {\(g\)}; \vertex [right=of b] (d); \vertex [right= of d] (e);
+\vertex [right= of e] (f); \vertex [above right=of f] (g) {\(e^-\)}; 
+\vertex [below right= of f ] (h) {\(e^+\)};
+\diagram{ (a) --[gluon] (b) --[gluon] (c); (b) -- [gluon] (d); (d) --[fermion, half left, edge label={\(q\)}] (e) --[fermion, half left, edge label={\(q\)}] (d);(e) --[photon, edge label={\(\gamma, Z\)}] (f); (h) --[fermion] (f) --[fermion] (g)
+};
+\end{feynman}
+\end{tikzpicture}
+\begin{tikzpicture}
+\begin{feynman}[small]
+\vertex (r); \vertex [above left=of r] (r1); \vertex [left=of r1] (r11) {\(g\)}; \vertex [below left=of r] (r2); \vertex [left=of r2] (r22) {\(g\)};
+\vertex [right = of r] (p); \vertex [above right=of p] (p1) {\(e^-\)}; \vertex [below right=of p] (p2) {\(e^+\)};
+\diagram{ (r) --[fermion, edge label={\(q\)}] (r2) --[fermion, edge label={\(q\)}] (r1) --[fermion, edge label={\(q\)}] (r); (r1) --[gluon] (r11); (r2) --[gluon] (r22); (r) --[photon, edge label={\(\gamma, Z\)}] (p); (p2) --[fermion] (p) --[fermion] (p1)
+};
+\end{feynman}
+\end{tikzpicture}
+\caption{Diagrams for $gg \rightarrow e^- e^+$.}
+\end{figure}
+
+\subsection{$gg \rightarrow t \bar{t} HH$}
+
+\subsection{$gg \rightarrow H \rightarrow Z \gamma$}
+Higgs boson doesn't interact via the strong interaction. \textit{Not allowed.}
+
+
+\subsection*{Quark-antiquark collisions}
+
+\subsection{$q \bar{q} \rightarrow W^+ W^- Z$}
+
+\subsection{$q \bar{q} \rightarrow gg e^+ e^-$}
+
+
+\subsection*{Proton-proton and proton-antiproton collisions}
+
+\subsection{$p \bar{p} \rightarrow l^+ l^- X$}
+\begin{flushleft}
+Quark and antiquark from proton and antiproton can annihilate and become lepton and antilepton through a virtual photon. \textit{Allowed.}
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+\begin{feynman}[small]
+\vertex (r); \vertex [above left=of r] (r1) {\(q\)}; \vertex [below left=of r] (r2) {\(\bar{q}\)}; \vertex [right= of r] (p); \vertex [above right=of p] (p1) {\(l^-\)}; \vertex [below right= of p] (p2) {\(l^+\)};
+\diagram{ (r1) --[fermion] (r) --[fermion] (r2); (r) --[photon, edge label={\(\gamma, Z\)}] (p); (p2) --[fermion] (p) --[fermion] (p1)
+};
+\end{feynman}
+\end{tikzpicture}
+\caption{Diagram for $p \bar{p} \rightarrow l^+ l^-$.}
+\end{figure}
+\end{flushleft}
+
+\subsection{$pp \rightarrow l^+ l^- l^+ l^- X$}
+Proton-proton collisions contain no antiquarks, so they can be no annihilation to form the photon for the leptons. \textit{Not allowed.}
+
+\subsection*{Collisions}
+
+\subsection{$K^- p \rightarrow \Omega^- K^+ K^0$}
+\begin{flushleft}
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+\begin{feynman}[small]
+\vertex (r); 
+\vertex [above left= of r] (r1) {\(u\)}; 
+\vertex [below left= of r] (r2) {\(\bar{u}\)}; 
+\vertex [right=of r] (p); 
+\vertex [above right=of p] (p1) {\(s\)}; 
+\vertex [below right=of p] (p2) {\(\bar{s}\)};
+\vertex [below=of r2] (m) {\(d\)}; 
+\vertex [right=of m] (n); 
+\vertex [right= of n] (n2) {\(d\)};
+\vertex [below=of n] (o); 
+\vertex [below right=of o] (o1) {\(s\)}; 
+\vertex [below =of n2] (o2) {\(\bar{s}\)};
+\diagram{ (r2) --[fermion] (r) --[fermion] (r1); (r) --[gluon, edge label={\(g, \gamma\)}] (p); (p2) --[fermion] (p) --[fermion] (p1); (m) --[fermion] (n) --[fermion] (n2); (n) --[gluon, edge label={\(g, \gamma\)}] (o); (o2) --[fermion] (o) --[fermion] (o1)
+};
+\end{feynman}
+\end{tikzpicture}
+\end{figure}
+\end{flushleft}
+
+\subsection{$\nu_e e^- \rightarrow \nu_e e^- \gamma$}
+\textit{Allowed.}
+
+\subsection{$ep \rightarrow J/ \psi +X$}
+
+
+\subsection*{Decays}
+
+\subsection{$\tau^+ \rightarrow \mu^+ \nu_e \bar{\nu}_{\tau}$}
+\begin{flushleft}
+This process is not allowed because it violates lepton flavour conservation. If we changed $\nu_e$ by $\nu_{\mu}$ it would be allowed.
+\end{flushleft}
+
+\subsection{$D^0 \leftrightarrow \bar{D}^0$}
+\textit{Allowed.} Weak current or something.
+
+\pagebreak
+
+
+%-----------START DEL 2
+
+
+\section{Top quark and $W$-boson}
+
+\subsection*{CKM-matrix}
+\begin{flushleft}
+The electroweak interaction does not preserve quark flavour. Quarks can change flavour by emitting a $W^{\pm}$-boson. The flavour-changes occur according to the classification of quarks into upper and lower, and the doublets
+\begin{align*}
+\begin{pmatrix}
+u\\
+d'\\
+\end{pmatrix},
+\begin{pmatrix}
+c\\
+s'\\
+\end{pmatrix},
+\begin{pmatrix}
+t\\
+b'\\
+\end{pmatrix},
+\end{align*}
+where $d'$,$s'$ and $b'$ are the weak eigenstates constructed from the quarks $d,s,b$
+\begin{align*}
+\begin{pmatrix}
+d'\\
+s'\\
+b'\\
+\end{pmatrix} = 
+V_{CKM} \begin{pmatrix}
+d\\
+s\\
+b\\
+\end{pmatrix}.
+\end{align*}
+The matrix $V_{CKM}$ relates the eigenstates to the asymptotic state quarks, and is called the \textit{Cabbibo-Kobayashi-Maskawa matrix}. The current best approximation is given by $V_{CKM}$
+\begin{align*}
+\begin{pmatrix}
+V_{ud} & V_{us} & V_{ub}\\
+V_{cd} & V_{cs} & V_{cb}\\
+V_{td} & V_{ts} & V_{tb}\\
+\end{pmatrix}
+\simeq \begin{pmatrix}
+0.97427 & 0.22534 & 0.00351 \\
+0.22520 & 0.97344 & 0.0412 \\
+0.00867 & 0.0400 & 0.999146\\
+\end{pmatrix}
+\end{align*}
+\begin{figure}[H]
+\begin{tikzpicture}
+\begin{feynman}
+\vertex (a) {\(q_u\)}; \vertex [right=of a] (b); \vertex [above right=of b] (c); \vertex [below right=of b] (d) {\(q_d\)};
+\diagram{(a)--[fermion] (b) --[photon, edge label={\(W^{\pm}\)}] (c); (b) --[fermion] (d)
+};
+\end{feynman}
+\end{tikzpicture}
+\centering
+\label{fig:: flavour change}
+\caption{Flavour-changing weak interaction with quarks.}
+\end{figure}
+The interactions of quarks and leptons with the $W^{\pm}$ bosons are called charged currents. Parity and charge conjugation are broken, but $CP$ is usually conserved. The top quark mass $m_t = 173$ GeV, however, is so large that it's production with the bottom quark
+\begin{align*}
+W^- \rightarrow t b',
+\end{align*}
+is kinematically forbidden. We will consider some ways the top quark is produced.
+\end{flushleft}
+
+\subsection*{$B^0-\bar{B}^0$-oscillations}
+\begin{flushleft}
+An example of weak and electroweak neutral currents, where $Z$ and $\gamma$ couple to a fermion. Neutral currents are, unlike charged ones, flavour-conserving. 
+\end{flushleft}
+
+
+\subsection*{Top quark decay}
+
+\begin{flushleft}
+The top quark is so heavy and shortlived that it does not have time to form hadrons before it decays. It decays through the weak interaction to a $W$-boson and a down-type quark, i.e. down, strange or bottom.
+\begin{align*}
+t \rightarrow W^+ b,s,d
+\end{align*}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+\begin{feynman}
+\vertex (a) {\(t\)}; \vertex [right=of a] (b); \vertex [above right= of b] (c); \vertex [below right=of b] (d) {\(d,s,b\)};
+\diagram{
+(a) --[fermion] (b) --[photon, edge label= {\(W^+\)}] (c), (b) --[fermion] (d)};
+\end{feynman}
+\end{tikzpicture}
+\caption{Top quark decay}
+\end{figure}
+\end{flushleft}
+
+
+\section{Gauge theories}
+
+\subsection*{Standard model}
+\begin{flushleft}
+The particles in the Standard model are organized in a threefold family structure
+\begin{align*}
+\begin{pmatrix}
+\nu_e & u\\
+e^- & d'\\
+\end{pmatrix}, 
+\begin{pmatrix}
+\nu_{\mu} & c\\
+\mu^- & s'\\
+\end{pmatrix},
+\begin{pmatrix}
+\nu_{\tau} & t\\
+\tau^- & b'\\
+\end{pmatrix}.
+\end{align*}
+\end{flushleft}
+
+\subsection*{Gauge and symmetries}
+
+\begin{flushleft}
+The gauge principle is the requirement that a Lagrangian, e.g. the free Dirac fermion Lagrangian
+\begin{align*}
+\mathcal{L}_0 = \bar{\psi}(i \partial_{\mu} - m) \psi,
+\end{align*}
+which is symmetric under $U(1)$ \textit{global} transformations also be \textit{symmetric under local transformations}.
+\end{flushleft}
+
+\begin{flushleft}
+The standard model is based on a non-Abelian group of transformations, called the Lorentz group, or $SU(3) \otimes U(1)$. The spinors are symmetric under local transformations
+\begin{align*}
+\psi \rightarrow \psi'=e^{iQ\theta} \Psi,
+\end{align*}
+and the theory is gauged by promoting these symmetries to local symmetries, i.e.
+\begin{align*}
+\theta \rightarrow \theta (x).
+\end{align*}
+In order to preserve symmetries we must introduce the covariant derivative
+\begin{align}
+D_{\mu}(x) = \partial_{\mu} - ieQA_{\mu}(x)
+\end{align}
+\end{flushleft}
+
+\begin{flushleft}
+Symmetries are related to conserved quantities through Noether's theorem, which claims that for every symmetry there must be a conserved quantity.
+\end{flushleft}
+
+
+
+\subsection{QCD}
+\begin{flushleft}
+From experiments we know that hadronic matter is made up of quarks -- mesons are $q \bar{q}$ and baryons are $qqq$. Because of Fermi statistics we need another quantum number, which we call colour. There are three colors
+\begin{align*}
+\alpha, \beta, \gamma = \text{ red, green, blue},
+\end{align*}
+and all asymptotic states are colorless. We take color to be the quantum number of strong interactions.
+\end{flushleft}
+
+\subsubsection*{QCD Lagrangian}
+
+\begin{flushleft}
+Consider the free Lagrangian for quarks of color $\alpha$ and flavor $f$
+\begin{align*}
+\mathcal{L}_0 = \sum_f \bar{q}_f^{\alpha} (i \cancel{\partial} - m_f)q_f^{\alpha}.
+\end{align*}
+This Lagrangian is symmetric under global $SU(3)_C$ transformations in color space, and we wish to promote these to local symmetries. The derivative is then no longer invariant, so we must derive a \textit{covariant derivative} which transforms in the same way as $q_f^{\alpha}$ under local transformations. The transformations are given by
+\begin{align*}
+U = \exp \Big( i \frac{\lambda^a}{2} \theta_a \Big),
+\end{align*}
+where $\lambda^a$ are the 8 generators of the group. Since this is a non-Abelian group the generators don't commute
+\begin{align*}
+\Big[ \frac{\lambda^a}{2}, \frac{\lambda^b}{2}
+\Big] = i f^{abc} \frac{\lambda^c}{2},
+\end{align*}
+where $f^{abc}$ are the structure constants. The covariant derivative is
+\begin{align*}
+D^{\mu} q_f = \Big[ \partial^{\mu} + ig_s \frac{\lambda^a}{2} G^{\mu}_a (x) \Big] qf \equiv [\partial^{\mu} + ig_s G^{\mu} (x)] q_f,
+\end{align*}
+where $G^{\mu}_a$ are the eight gluons, or gauge bosons, corresponding to the eight generators. Because we want $D^{\mu}$ to transform exactly like the quarks, the transformation of the gluons is fixed
+\begin{align*}
+D^{\mu} & \rightarrow D^{\mu '} = U D^{\mu} U^{\dagger}\\
+G^{\mu} & \rightarrow G^{\mu '} = U G^{\mu} U^{\dagger} + \frac{i}{g_s} (\partial^{\mu} U) U^{\dagger}.
+\end{align*}
+For infinitesimal $SU(3)_C$ transformations we therefore get
+\begin{align*}
+q_f^{\alpha} &\rightarrow q_f^{\alpha '} = q_f^{\alpha} + i \Big( \frac{\lambda^a}{2} \Big)_{\alpha \beta} \delta \theta_a q_f^{\beta}\\
+G_a^{\mu} & \rightarrow G_a^{\mu '} = G_a^{\mu} - \frac{1}{g_s} \partial^{\mu} (\delta \theta_a) - f^{abc} \delta \theta_b G_c^{\mu}.
+\end{align*}
+\end{flushleft}
+
+\begin{flushleft}
+In order to construct a Lagrangian we must see which terms are allowed. Only terms symmetric under local $SU(3)_c$ transformations are allowed, to there is no mass term e.g.
+\begin{align*}
+G_{\mu} G^{\mu} &\rightarrow (G_{\mu})'(G^{\mu})' = (U G_{\mu} U^{\dagger} + \frac{i}{g_s} (\partial_{\mu} U) U^{\dagger})\\
+& \times (U G^{\mu} U^{\dagger} + \frac{i}{g_s} (\partial^{\mu} U) U^{\dagger})\\
+&= U G_{\mu} U^{\dagger} U G^{\mu} U^{\dagger} + \frac{i}{g_s}U G_{\mu} U^{\dagger}  (\partial^{\mu} U)U^{\dagger}\\
+&+  \frac{i}{g_s} (\partial_{\mu} U) U^{\dagger}U G^{\mu} U^{\dagger}\\
+& - \frac{1}{g_s^2} (\partial_{\mu} U) U^{\dagger} (\partial^{\mu} U) U^{\dagger}\\
+&= U G_{\mu}  G^{\mu} U^{\dagger} + \frac{i}{g_s}U G_{\mu} U^{\dagger}  (\partial^{\mu} U)U^{\dagger}\\
+&+  \frac{i}{g_s} (\partial_{\mu} U) G^{\mu} U^{\dagger} - \frac{1}{g_s^2} (\partial_{\mu} U) U^{\dagger} (\partial^{\mu} U) U^{\dagger} \neq G_{\mu}G^{\mu}\\
+\end{align*}
+since $U^{\dagger} U = U^{\dagger} U = 1$. So no mass term is allowed, and the gluons are massless.
+\end{flushleft}
+
+\pagebreak
+
+\begin{flushleft}
+ We instead consider kinetic terms, analogous to QED
+ \end{flushleft}
+\end{multicols}
+\begin{align*}
+i g_s G_{\mu \nu} &= [D_{\mu}, D_{\nu}] = (\partial_{\mu} + ig_s G_{\mu})(\partial_{\nu} + ig_s G_{\nu} )- (\partial_{\nu} + ig_s G_{\nu} ) (\partial_{\mu} + ig_s G_{\mu} )\\
+&= \partial_{\mu} \partial_{\nu}+ ig_s \partial_{\mu}  G_{\nu} +ig_s G_{\mu} \partial_{\nu}  - g_s^2 G_{\mu} G_{\nu}
+- \partial_{\nu} \partial_{\mu}- ig_s\partial_{\nu}  G_{\mu} -ig_s G_{\nu} \partial_{\mu}  + g_s^2 G_{\nu} G_{\mu}\\
+&= [\partial_{\mu}, \partial_{\nu}]+ ig_s (\partial_{\mu}  G_{\nu} - \partial_{\nu}  G_{\mu}) +ig_s [G_{\mu} \partial_{\nu}, G_{\nu} \partial_{\mu}]  + g_s^2 [G_{\mu}, G_{\nu}]\\
+&= ig_s (\partial_{\mu}  G_{\nu} - \partial_{\nu}  G_{\mu})   + g_s^2 [G_{\mu}, G_{\nu}]\\
+& \rightarrow \frac{\lambda^a}{2} G_a^{\mu \nu} \equiv \partial_{\mu} G_{\nu} - \partial_{\nu} G_{\mu} + g_s [G_{\mu}, G_{\nu}],\\
+G_a^{\mu \nu} (x) &=  \partial^{\mu} G^{\nu}_a - \partial^{\nu} G^{\mu}_a - g_s f^{abc} G^{\mu}_b G^{\nu}_c
+\end{align*}
+\begin{multicols}{2}
+\begin{flushleft}
+where we've used that
+\begin{align*}
+[\partial_{\mu}, \partial_{\nu}] &= 0, \text{ } [G_{\mu} \partial_{\nu}, G_{\nu} \partial_{\mu}]=0.\\
+\end{align*}
+Under $SU(3)_C$ this term transforms in the desired way
+\begin{align*}
+G^{\mu \nu} \rightarrow G^{\mu \nu '} = U G^{\mu \nu} U^{\dagger}.
+\end{align*}
+\end{flushleft}
+
+\begin{flushleft}
+We now have the terms for the QCD Lagrangian 
+\begin{align}
+\mathcal{L}_{QCD} \equiv - \frac{1}{4} G^{\mu \nu}_a G^a_{\mu \nu} + \sum_f \bar{q}_f (i \gamma^{\mu} D_{\mu} -m_f)q_f.
+\end{align}
+We now note a difference between QED and QCD. In QED the gauge bosons commute, and so the field strength only contains terms of te first order in $A_{\mu}$. In QCD, however, the field strength contains a term $G^{\mu}_b G^{\nu}_c$, which means that the Lagrangian has terms that have third and fourth order terms in the gauge boson - meaning that we have self-interaction vertices with three and four gluons, as seen in figure (\ref{QCD vertices}).
+ 
+\begin{figure}[H]
+\begin{tikzpicture}
+\begin{feynman}
+\vertex (a); \vertex [below right=of a] (r); \vertex [above right=of r] (b); \vertex [below left=of r] (c); \vertex [below right=of r] (d); \vertex [left=of r] (D);
+\diagram{ (a) --[gluon] (r) -- [gluon] (b); (c)--[gluon] (r) --[gluon] (d)
+};
+\end{feynman}
+\end{tikzpicture}
+\begin{tikzpicture}
+\begin{feynman}
+\vertex (a); \vertex [below right=of a] (r); \vertex [above right=of r] (b); \vertex [below=of r] (c); 
+\diagram{ (a) --[gluon] (r) -- [gluon] (b); (c)--[gluon] (r)
+};
+\end{feynman}
+\end{tikzpicture}
+\begin{tikzpicture}
+\begin{feynman}
+\vertex (a); \vertex [below right=of a] (r); \vertex [above right=of r] (b); \vertex [below=of r] (c); 
+\diagram{ (a) --[gluon] (r) -- [gluon] (b); (c)--[fermion] (r)
+};
+\end{feynman}
+\end{tikzpicture}
+\caption{The interaction vertices from the QCD Lagrangian.}
+\label{QCD vertices}
+\end{figure}
+\end{flushleft}
+
+\subsection*{QCD and QED}
+\begin{flushleft}
+QCD is a non-Abelian theory, while QED is an Abelian theory. As metnioned in the derivation of $\mathcal{L}_{QCD}$ this means that the generators of $QCD$ don't commute, while the ones in $QED$ do. This leads to the presence of self-interaction vertices in QCD, which could explain asymptotic freedom (antiscreening makes strong interactions weaker at short distances) and confinement (we can't observe free quarks, because strong forces become strong at long distances).
+\end{flushleft}
+
+
+\subsection*{Electroweak unification}
+\begin{flushleft}
+
+\end{flushleft}
+
+
+\end{multicols}
+
+\pagebreak
+
+\section*{Appendix}
+\begin{flushleft}
+Proof that $[G_{\mu} \partial_{\nu}, G_{\nu} \partial_{\mu}]=0$. Use the identity
+\begin{align}
+[AB, CD] &= A[B,C]D + [A,C]BD + CA[B,D] + C[A,D]B.
+\end{align}
+Set in the expression
+\begin{align*}
+[G_{\mu} \partial_{\nu}, G_{\nu} \partial_{\mu}] &= G_{\mu} [\partial_{\nu}, G_{\nu}] \partial_{\mu} + [G_{\mu}, G_{\nu}] \partial_{\nu}  \partial_{\mu} + G_{\nu} G_{\mu}  [\partial_{\nu}  ,\partial_{\mu}] + G_{\nu}[G_{\mu}, \partial_{\mu}]  \partial_{\nu}\\
+&= G_{\mu} [\partial_{\nu}, G_{\nu}] \partial_{\mu} + [G_{\mu}, G_{\nu}] \partial_{\nu}  \partial_{\mu}  + G_{\nu}[G_{\mu}, \partial_{\mu}]  \partial_{\nu} \\
+&= G_{\mu} (\partial_{\nu}G_{\nu}-G_{\nu}\partial_{\nu} ) \partial_{\mu} + (G_{\mu} G_{\nu}-G_{\nu} G_{\mu}) \partial_{\nu}  \partial_{\mu}  + G_{\nu}(G_{\mu}\partial_{\mu}-\partial_{\mu}G_{\mu}) \partial_{\nu}\\
+&= G_{\mu} \partial_{\nu}G_{\nu} \partial_{\mu}-G_{\mu}G_{\nu}\partial_{\nu}  \partial_{\mu} + G_{\mu} G_{\nu}\partial_{\nu}  \partial_{\mu}-G_{\nu} G_{\mu} \partial_{\nu}  \partial_{\mu}  + G_{\mu}G_{\nu}\partial_{\nu}\partial_{\mu}-G_{\mu}\partial_{\nu}G_{\nu} \partial_{\mu}\\
+&= 0\\
+\end{align*}
+because when indices are summed over they can be interchanged.
+\end{flushleft}
+
+
+\end{document}
