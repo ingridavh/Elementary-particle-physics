@@ -107,16 +107,114 @@ Is this a supersymmetric lepton? This decay can happen through the electromagnet
 \end{figure}
 
 \subsection{$e^+ e^- \rightarrow HH \gamma$}
+\begin{flushleft}
+Allowed through the weak and electroweak interaction. There are three $5$-vertex diagrams, but two of them include a $WW \gamma$-vertex, which has a second order coupling constant.
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+\begin{feynman}[small]
+\vertex (r1) {\(e^-\)}; \vertex [below right=of r1] (r2); \vertex [below left=of r2] (r3) {\(e^+\)}; \vertex [right=of r2] (p); \vertex [above right=of p] (p1); \vertex [below right= of p] (p2); \vertex [above right=of p2] (k); \vertex [right=of k] (m);
+\vertex [above=of m] (t) {\(H^0\)}; \vertex [below=of m] (b) {\(H^0\)};
+\diagram{ (r1) --[fermion] (r2) --[fermion](r3); (r2) --[photon, edge label={\(Z, \gamma\)}] (p); (p) --[fermion, edge label={\(t\)}] (p1) --[fermion, edge label={\(t\)}] (k) --[fermion, edge label={\(t\)}] (p2) --[fermion, edge label={\(t\)}] (p); (p1) --[scalar] (t); (p2) --[scalar] (b); (k) --[photon, edge label={\(\gamma\)}] (m)
+};
+\end{feynman}
+\end{tikzpicture}
+\caption{Diagram for $e^+ e^- \rightarrow HH \gamma$.}
+\end{figure}
+\end{flushleft}
 
 \subsection{$e^+ e^- \rightarrow ZZZ$}
+\begin{flushleft}
+Important because it's a precision test of vertices containing to $Z$ bosons. Since this process creates two jets; one where two $Z$'s come out, and one where one comes out, we see that $ZZZ$-vertices are not observed. It could also occur via the electroweak interaction, but then the resulting bosons would be $\gamma ZZ$ or $\gamma \gamma \gamma$.
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+\begin{feynman}[small]
+\vertex (r1) {\(e^-\)}; \vertex [below right=of r1] (r2); \vertex [below left=of r2] (r3) {\(e^+\)}; \vertex [right= of r2] (p); \vertex [below right=of p] (p1); \vertex [above right = of p1] (p11) {\(Z\)}; \vertex [below right= of p1] (p12) {\(Z\)}; \vertex [above=of p11] (p2) {\(Z\)};
+\diagram{(r1) --[fermion] (r2) --[fermion] (r3); (r2) --[photon, edge label={\(Z\)}] (p); (p) --[scalar, half left, edge label={\(W\)}] (p1) --[scalar, half left, edge label={\(W\)}] (p); (p11) --[photon] (p1) --[photon] (p12); (p) --[photon] (p2)
+};
+\end{feynman}
+\end{tikzpicture}
+\caption{Diagram for $e^+ e^- \rightarrow ZZZ$.}
+\end{figure}
+\end{flushleft}
 \subsection{$e^+e^- \rightarrow H \rightarrow gg$}
-Doesn't Higgs decay through the weak interaction? Is color conserved here?
+This process is allowed via the strong and the weak interaction, and produces a Higgs boson which then decays into top quark production.
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+\begin{feynman}[small]
+\vertex (r1) {\(e^-\)}; \vertex[right =of r1] (p1); \vertex[below right=of p1] (k); \vertex [below left=of k] (p2); \vertex [left=of p2] (r2) {\(e^+\)};  \vertex [right=of k] (m); \vertex[above right = of m] (m1); \vertex [below right=of m] (m2); \vertex [right = of m1] (m11) {\(g\)}; \vertex [right=of m2] (m22) {\(g\)};
+\diagram{
+(r1) --[fermion] (p1) --[fermion] (p2) --[fermion] (r2); 
+(p1) --[photon, edge label={\(Z, \gamma\)}] (k) --[photon, edge label={\(Z, \gamma\)}] (p2); 
+(k) --[scalar, edge label={\(H^0\)}] (m);
+ (m) --[fermion, edge label={\(t\)}] (m1) --[fermion, edge label={\(t\)}] (m2) --[fermion, edge label={\(t\)}] (m);
+(m1) --[gluon] (m11); (m2) --[gluon] (m22) 
+};
+\end{feynman}
+\end{tikzpicture}
+\caption{Diagram for $e^-e^+ \rightarrow H \rightarrow gg$.}
+\end{figure}
+\begin{flushleft}
+
+\end{flushleft}
+
 \subsection{$e^+e^- \rightarrow \nu \bar{\nu} \gamma \gamma$}
-Maybe possible with a four-jet.
+\begin{flushleft}
+This process is allowed through the electroweak interaction.
+\begin{figure}[H]
+\begin{tikzpicture}
+\begin{feynman}[small]
+\vertex (r1) {\(e^-\)}; \vertex [below=of r1] (r2) {\(e^+\)}; \vertex [right = of r1] (p1); \vertex [right=of r2] (p2);
+\vertex [right =of p2] (k2); \vertex[right =of p1] (k1);
+\vertex [right=of k1] (m1) {\(\nu\)}; \vertex [above =of m1] (m11) {\(\gamma\)}; \vertex [right= of k2] (m2) {\(\bar{\nu}\)}; \vertex [below=of m2] (m22) {\(\gamma\)};
+\diagram{ (r1) --[fermion] (p1) --[fermion] (k1) --[fermion] (m1); (m2) --[fermion] (k2) --[fermion] (p2) --[fermion] (r2);
+(p1) --[photon] (m11); (p2) --[photon] (m22); (k1) --[scalar, edge label={\(W\)}] (k2)
+};
+\end{feynman}
+\end{tikzpicture}
+\begin{tikzpicture}
+\begin{feynman}[small]
+\vertex (r1) {\(e^-\)}; 
+\vertex [right =of r1] (p1); 
+\vertex [below right=of p1] (k); 
+\vertex [below left= of k] (p2); 
+\vertex [left=of p2] (r2) {\(e^+\)};
+\vertex [above right=of k] (k1) {\(\gamma\)}; 
+\vertex [below right= of k] (k2) {\(\gamma\)}; 
+\vertex [above= of k1] (k11) {\(\nu\)}; 
+\vertex [below=of k2] (k22) {\(\bar{\nu}\)};
+\diagram{(r1) --[fermion] (p1) --[fermion] (k11); 
+(k22) --[fermion] (p2) --[fermion] (r2);
+(p1) --[scalar, edge label={\(W\)}] (k) --[photon] (k1); (k2)--[photon] (k)--[scalar, edge label={\(W\)}] (p2)
+};
+\end{feynman}
+\end{tikzpicture}
+\caption{Diagrams for $e^+e^- \rightarrow \nu \bar{\nu} \gamma \gamma$.}
+\end{figure}
+\end{flushleft}
+
 \subsection{$e^+e^- \rightarrow Y(3s) \rightarrow B^0 \bar{B}^0$}
+\begin{flushleft}
+This process is allowed through the electroweak interaction, or a combination of the electroweak and strong interaction.
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+\begin{feynman}[small]
+\vertex (r1); \vertex [below right= of r1] (r); \vertex [below left=of r] (r2); \vertex [right=of r] (p); 
+\vertex [right of= p] (k); \vertex [right of= k] (k2); \vertex [above right=of k2] (k21) {\(d\)}; \vertex [below=of k21] (k22) {\(\bar{d}\)}; \vertex [above=of k21] (k1) {\(\bar{b}\)}; \vertex [below=of k22] (k3) {\(b\)};
+\diagram{ (r1) --[fermion] (r)--[fermion] (r2); (r) --[photon, edge label={\(\gamma, Z\)}] (p); (k1) --[fermion] (k) --[fermion] (p) --[fermion] (k3); (k2) --[photon, edge label={\(\gamma, Z, g\)}] (k); (k22) --[fermion] (k2) --[fermion] (k21)
+};
+\end{feynman}
+\end{tikzpicture}
+\caption{Diagram for $e^+e^- \rightarrow Y(3s) \rightarrow B^0 \bar{B}^0$. $Y(3s)$ is made up of $\bar{b}b $.}
+\end{figure}
+\end{flushleft}
+
 \subsection{$e^+ e^- \rightarrow Z^0 t \bar{t}$}
 
-\subsection*{Gluon-gluon collisions}
+\subsection*{Gluon-gluon fusion}
 
 \subsection{$gg \rightarrow e^+e^-$}
 \begin{flushleft}
@@ -145,16 +243,78 @@ This interaction is possible, but requires four vertices so its cross section mu
 \end{figure}
 
 \subsection{$gg \rightarrow t \bar{t} HH$}
+\begin{flushleft}
+This process is allowed via the strong interaction. It's important in order to determine whether there are $HH$-vertices.
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+\begin{feynman}[small]
+\vertex (r1) {\(g\)}; \vertex [right=of r1] (p1) ; \vertex [below=of p1] (p2) ; \vertex [left=of p2] (r2) {\(g\)};
+\vertex [right=of p1] (k1); \vertex [above right=of k1] (k11) {\(\bar{t}\)};\vertex [below= of k11] (k12) {\(H^0\)}; \vertex [right= of p2] (k2); \vertex [below right= of k2] (k22) {\(t\)}; \vertex [above= of k22] (k21) {\(H^0\)};
+\diagram{ (r1) --[gluon] (p1); (r2) --[gluon] (p2); (k11) --[fermion] (k1) --[fermion, edge label={\(t\)}] (p1) --[fermion, edge label={\(t\)}] (p2) -- [fermion, edge label={\(t\)}] (k2) --[fermion] (k22); (k2) --[scalar] (k21); (k1) --[scalar] (k12)
+};
+\end{feynman}
+\end{tikzpicture}
+\caption{Diagram for $gg \rightarrow t \bar{t} HH$.}
+\end{figure}
+\end{flushleft}
 
 \subsection{$gg \rightarrow H \rightarrow Z \gamma$}
-Higgs boson doesn't interact via the strong interaction. \textit{Not allowed.}
+\begin{flushleft}
+This process is allowed through a combination of the strong and electroweak interaction, using a top quark loop. This diagram is important for the top quark production and decay.
+\begin{figure}[H]
+\begin{tikzpicture}
+\begin{feynman}
+\vertex (r1) {\(g\)}; \vertex [right=of r1] (p1) ; \vertex [below=of p1] (p2) ; \vertex [left=of p2] (r2) {\(g\)};
+\vertex [below right= of p1] (p); \vertex [right=of p] (k); \vertex [above right=of k] (k1); \vertex [below=of k1] (k2); \vertex [right =of k1] (k11) {\(Z, \gamma\)}; \vertex [right=of k2] (k22) {\(\gamma, Z\)};
+\diagram{ (r1) --[gluon] (p1) --[fermion, edge label={\(t\)}] (p) --[fermion, edge label={\(t\)}] (p2) --[fermion, edge label={\(t\)}] (p1); (r2) --[gluon] (p2); (p) --[scalar, edge label={\(H^0\)}] (k); (k) --[scalar, edge label={\(W\)}] (k1) --[scalar, edge label={\(W\)}] (k2) --[scalar, edge label={\(W\)}] (k); (k1) --[photon] (k11); (k2) --[photon] (k22)
+};
+\end{feynman}
+\end{tikzpicture}
+\caption{Diagrams for $gg \rightarrow H \rightarrow Z \gamma$.}
+\end{figure}
+\end{flushleft}
 
 
 \subsection*{Quark-antiquark collisions}
 
 \subsection{$q \bar{q} \rightarrow W^+ W^- Z$}
+\begin{flushleft}
+This process is allowed through the weak interaction. It is important because it gives evidence for the existence of the $WWZZ$-four vertex.
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+\begin{feynman}[small]
+\vertex (r1) {\(q\)}; \vertex [below right=of r1] (r2); \vertex [below left=of r2] (r3) {\(\bar{q}\)}; \vertex[right=of r2] (p); \vertex [right =of p] (k2) {\(Z\)}; \vertex [above=of k2] (k1) {\(W\)}; \vertex [below=of k2] (k3) {\(W\)};
+\diagram{(r1) --[fermion] (r2) --[fermion] (r3); (r2) --[photon, edge label={\(Z\)}] (p); (k1) --[scalar] (p) --[scalar] (k3); (p) --[photon] (k2)
+};
+\end{feynman}
+\end{tikzpicture}
+\end{figure}
+\end{flushleft}
+
 
 \subsection{$q \bar{q} \rightarrow gg e^+ e^-$}
+\begin{flushleft}
+This process is allowed through a combination of the strong and electroweak interactions.
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+\begin{feynman}[small]
+\vertex (r1) {\(q\)}; \vertex [right= of r1] (p1); \vertex[below right= of p1](p); \vertex [below left= of p] (p2); \vertex [left = of p2] (r2) {\(\bar{q}\)}; \vertex [right= of p] (k); \vertex [above right=of k] (k1) {\(e^-\)}; \vertex [below right= of k] (k2) {\(e^+\)}; \vertex[above= of k1] (k0) {\(g\)} ;\vertex [below= of k2] (k3) {\(g\)};
+\diagram{ (r1) --[fermion] (p1) --[fermion] (p) --[fermion] (p2) --[fermion] (r2); (p1)--[gluon] (k0); (p2) --[gluon] (k3); (k2) --[fermion] (k) --[fermion] (k1); (p)--[photon, edge label={\(\gamma, Z\)}] (k)
+};
+\end{feynman}
+\end{tikzpicture}
+\begin{tikzpicture}
+\begin{feynman}[small]
+\vertex (r1) {\(q\)}; \vertex [right=of r1] (p1); \vertex [below=of p1] (p2); \vertex [left=of p2] (r2) {\(\bar{q}\)}; \vertex [right=of p1] (k1); \vertex[above right=of k1] (k11) {\(g\)}; \vertex [below =of k11] (k12) {\(g\)}; \vertex [right =of p2] (k2); \vertex [below right=of k2] (k22) {\(e^+\)}; \vertex [above=of k22] (k21) {\(e^-\)};
+\diagram{ (r1) --[fermion] (p1) --[fermion] (p2) --[fermion] (r2); (p1) --[gluon] (k1) --[gluon] (k11); (k1) --[gluon] (k12); (p2) --[photon, edge label={\(\gamma, Z\)}] (k2); (k22) --[fermion] (k2)--[fermion](k21)
+};
+\end{feynman}
+\end{tikzpicture}
+\end{figure}
+\end{flushleft}
 
 
 \subsection*{Proton-proton and proton-antiproton collisions}
@@ -176,12 +336,38 @@ Quark and antiquark from proton and antiproton can annihilate and become lepton 
 \end{flushleft}
 
 \subsection{$pp \rightarrow l^+ l^- l^+ l^- X$}
-Proton-proton collisions contain no antiquarks, so they can be no annihilation to form the photon for the leptons. \textit{Not allowed.}
+\begin{flushleft}
+This process is important because it requires the production of a Higgs boson. It is allowed via the weak interaction.
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+\begin{feynman}[small]
+\vertex (r1) {\(q\)}; \vertex [right=of r1] (p1);
+\vertex [below right= of p1] (p2); 
+\vertex [below left=of p2] (p3); 
+\vertex [left=of p3] (r3) {\(q\)}; 
+\vertex [right= of p2] (k);
+\vertex [above right = of k] (k1);
+\vertex [above right = of k1] (k11) {\(l^-\)};
+\vertex [below= of k11] (k12) {\(l^+\)};
+\vertex [below right = of k] (k2);
+\vertex [above right = of k2] (k21) {\(l^-\)};
+\vertex [below= of k21] (k22) {\(l^+\)};
+\vertex [above = of k11] (t) {\(q\)};
+\vertex [below = of k22] (b) {\(q\)};
+\diagram{ (r1) --[fermion] (p1) --[fermion] (t); (r3) --[fermion] (p3) --[fermion] (b); (p1) -- [photon, edge label={\(Z\)}](p2) --[photon, edge label={\(Z\)}] (p3); (p2) --[scalar, edge label={\(H^0\)}] (k); (k2) --[photon, edge label={\(Z\)}] (k) --[photon, edge label={\(Z\)}] (k1); (k12) --[fermion] (k1) --[fermion] (k11); (k22) --[fermion] (k2) --[fermion] (k21)
+};
+\end{feynman}
+\end{tikzpicture}
+\caption{Diagram for $p \bar{p} \rightarrow l^+ l^-$.}
+\end{figure}
+\end{flushleft}
 
 \subsection*{Collisions}
 
 \subsection{$K^- p \rightarrow \Omega^- K^+ K^0$}
 \begin{flushleft}
+This interaction is allowed through the strong interaction.
 \begin{figure}[H]
 \centering
 \begin{tikzpicture}
@@ -194,21 +380,73 @@ Proton-proton collisions contain no antiquarks, so they can be no annihilation t
 \vertex [below right=of p] (p2) {\(\bar{s}\)};
 \vertex [below=of r2] (m) {\(d\)}; 
 \vertex [right=of m] (n); 
-\vertex [right= of n] (n2) {\(d\)};
-\vertex [below=of n] (o); 
-\vertex [below right=of o] (o1) {\(s\)}; 
+\vertex [below= of p2] (n2) {\(d\)};
+\vertex [below=of n] (o);  
 \vertex [below =of n2] (o2) {\(\bar{s}\)};
+\vertex [below =of o2] (o1) {\(s\)};
 \diagram{ (r2) --[fermion] (r) --[fermion] (r1); (r) --[gluon, edge label={\(g, \gamma\)}] (p); (p2) --[fermion] (p) --[fermion] (p1); (m) --[fermion] (n) --[fermion] (n2); (n) --[gluon, edge label={\(g, \gamma\)}] (o); (o2) --[fermion] (o) --[fermion] (o1)
+};
+\end{feynman}
+\end{tikzpicture}
+\begin{tikzpicture}
+\begin{feynman}[small]
+\vertex [below=of r2](R); 
+\vertex [above left=of R] (R1) {\(\bar{u}\)}; 
+\vertex [below left=of R] (R2) {\(u\)}; 
+\vertex [right=of R] (P); 
+\vertex [above right=of P] (P1); 
+\vertex [below right=of P] (P2); 
+\vertex [above right = of P1] (P11) {\(\bar{s}\)}; 
+\vertex [below=of P11] (P12) {\(s\)}; 
+\vertex [below right=of P2] (P22) {\(s\)}; 
+\vertex [above=of P22] (P21) {\(\bar{s}\)};
+\diagram{(R2) --[fermion] (R) --[fermion] (R1); 
+(R) --[gluon, edge label={\(g\)}] (P); 
+(P1) --[gluon, edge label={\(g\)}] (P) --[gluon, edge label={\(g\)}] (P2); 
+(P11) --[fermion] (P1) --[fermion] (P12);
+(P21) --[fermion] (P2) --[fermion] (P22)};
+\end{feynman}
+\end{tikzpicture}
+\caption{Diagrams for $K^- p \rightarrow \Omega^- K^+ K^0$.}
+\end{figure}
+\end{flushleft}
+
+\subsection{$\nu_e e^- \rightarrow \nu_e e^- \gamma$}
+\begin{flushleft}
+Allowed through electroweak interaction.
+\begin{figure}[H]
+\begin{tikzpicture}
+\begin{feynman}
+\vertex (r1) {\(e^-\)}; 
+\vertex [right= of r] (p1); 
+\vertex [below =of p1] (p2); 
+\vertex [below= of p2] (p3); 
+\vertex [left=of p3] (r3) {\(\nu_e\)}; 
+\vertex [right =of p2] (l); 
+\vertex [right= of l] (k2); 
+\vertex [above=of k2] (k1) {\(e^-\)}; 
+\vertex [below =of k2] (k3) {\(\nu_e\)};
+\diagram{ (r1) --[fermion] (p1) --[fermion] (k1); (p3) -- [photon, edge label={\(Z,\gamma\)}] (p2) --[photon, edge label={\(Z, \gamma\)}] (p1); (r3) --[fermion] (p3) --[fermion] (k3); (p2) --[scalar, half left, edge label={\(W\)}] (l) --[scalar, half left, edge label={\(W\)}] (p2); (l) --[photon, edge label={\(\gamma\)}] (k2)
+};
+\end{feynman}
+\end{tikzpicture}
+\caption{Diagram for $\nu_e e^- \rightarrow \nu_e e^- \gamma$.}
+\end{figure}
+\end{flushleft}
+
+\subsection{$ep \rightarrow J/ \psi +X$}
+\begin{flushleft}
+The $J/ \psi$ meson consists of $c \bar{c}$ quarks, a proton consists of $uud$ and a neutron consists of $udd$. So in order for the process to occur , an up quark must turn into a down quark. This process is allowed through the weak interaction. It's important because it shows that flavour is not conserved in weak interactions. 
+\begin{figure}[H]
+\begin{tikzpicture}
+\begin{feynman}
+\vertex (r1) {\(u\)}; \vertex [right =of r1] (p1); \vertex[below right= of p1] (p); \vertex [below left= of p] (p2); \vertex [left=of p2] (r2) {\(e^-\)}; \vertex [right=of p] (k); \vertex[above right = of k] (k1) {\(c\)}; \vertex [above=of k1] (k0) {\(d\)}; \vertex[below right=of k] (k2) {\(\bar{c}\)}; \vertex [below= of k2] (k3) {\(\nu_e\)};
+\diagram{ (r1) --[fermion] (p1) --[scalar, edge label={\(W\)}] (p) --[scalar, edge label={\(W\)}] (p2) --[fermion] (r2); (p1) --[fermion] (k0); (p2) --[fermion] (k3); (p) --[photon, edge label={\(Z\)}] (k); (k2) --[fermion] (k) --[fermion] (k1)
 };
 \end{feynman}
 \end{tikzpicture}
 \end{figure}
 \end{flushleft}
-
-\subsection{$\nu_e e^- \rightarrow \nu_e e^- \gamma$}
-\textit{Allowed.}
-
-\subsection{$ep \rightarrow J/ \psi +X$}
 
 
 \subsection*{Decays}
@@ -259,7 +497,7 @@ s\\
 b\\
 \end{pmatrix}.
 \end{align*}
-The matrix $V_{CKM}$ relates the eigenstates to the asymptotic state quarks, and is called the \textit{Cabbibo-Kobayashi-Maskawa matrix}. The current best approximation is given by $V_{CKM}$
+The matrix $V_{CKM}$ relates the weak interaction eigenstates $d'$ to the energy eigenstates $d$, and is called the \textit{Cabbibo-Kobayashi-Maskawa matrix}. The current best approximation is given by $V_{CKM}$
 \begin{align*}
 \begin{pmatrix}
 V_{ud} & V_{us} & V_{ub}\\
@@ -293,7 +531,44 @@ is kinematically forbidden. We will consider some ways the top quark is produced
 
 \subsection*{$B^0-\bar{B}^0$-oscillations}
 \begin{flushleft}
-An example of weak and electroweak neutral currents, where $Z$ and $\gamma$ couple to a fermion. Neutral currents are, unlike charged ones, flavour-conserving. 
+A manifestation of the neutral particle oscillations and charged current, is the $B^0-\bar{B}^0$ oscillations between particle and antiparticle. The neutral $B^0$ meson consists of a strange antiquark $s$ and a bottom quark $b$, or their antiparticles. The mixing has been observed at Fermilab in 2006 and by LHCb at CERN in 2011. The oscillation is important because it can tell us something about the excess of matter (as opposed to antimatter) in the universe. The $V_{CKM}$-matrix elements that go into the oscillations are $V_{tb}$ and $V_{ts}$ for the $B_s$ meson, and $V_{tb}$ and $V_{td}$ for the $B$ meson, as can be seen in Fig. (\ref{fig:: b-bbar mixing}).
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+\begin{feynman}
+\vertex (r1) {\(\bar{b}\)}; 
+\vertex [below=of r1] (r2) {\(d\)}; 
+\vertex [right=of r1] (p1); 
+\vertex [below=of p1] (p2); 
+\vertex [right=of p1] (k1);
+\vertex [below=of k1] (k2);
+\vertex [right=of k1] (q1) {\(\bar{d}\)};
+\vertex [below=of q1] (q2) {\(b\)};
+\diagram{ (r2) --[fermion] (p2) --[fermion, edge label={\((u,c),t\)}] (p1) --[fermion] (r1); (p1) --[scalar, edge label={\(W\)}] (k1); (p2) --[scalar, edge label={\(W\)}] (k2); (q1) --[fermion] (k1) --[fermion, edge label={\((u,c),t\)}] (k2) --[fermion] (q2)
+};
+\draw [decoration ={brace}, decorate] (r2.south west)-- (r1.north west) node [pos=0.5, left] {\(B^{0}\)};
+\draw [decoration ={brace}, decorate] (q1.north east)-- (q2.south east) node [pos=0.5, right] {\(\bar{B}^{0}\)};
+\end{feynman}
+\end{tikzpicture}
+\begin{tikzpicture}
+\begin{feynman}
+\vertex (r1) {\(\bar{b}\)}; 
+\vertex [below=of r1] (r2) {\(s\)}; 
+\vertex [right=of r1] (p1); 
+\vertex [below=of p1] (p2); 
+\vertex [right=of p1] (k1);
+\vertex [below=of k1] (k2);
+\vertex [right=of k1] (q1) {\(\bar{s}\)};
+\vertex [below=of q1] (q2) {\(b\)};
+\diagram{ (r2) --[fermion] (p2) --[fermion, edge label={\((u,c),t\)}] (p1) --[fermion] (r1); (p1) --[scalar, edge label={\(W\)}] (k1); (p2) --[scalar, edge label={\(W\)}] (k2); (q1) --[fermion] (k1) --[fermion, edge label={\((u,c),t\)}] (k2) --[fermion] (q2)
+};
+\draw [decoration ={brace}, decorate] (r2.south west)-- (r1.north west) node [pos=0.5, left] {\(B^{0}_s\)};
+\draw [decoration ={brace}, decorate] (q1.north east)-- (q2.south east) node [pos=0.5, right] {\(\bar{B}^{0}_s\)};
+\end{feynman}
+\end{tikzpicture}
+\caption{Diagrams for $B^0-\bar{B}^0$ and $B^0_s-\bar{B}^0_s$ oscillations.}
+\label{fig:: b-bbar mixing}
+\end{figure}
 \end{flushleft}
 
 
