@@ -1,0 +1,365 @@
+\documentclass[11pt]{article}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc} 
+\usepackage{amsmath}
+\usepackage{cancel}
+\usepackage{bbold}
+\usepackage{color}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+\usepackage{braket}
+\usepackage{float}
+\usepackage{lscape}
+\usepackage{multicol}
+\usepackage{tikz-feynman}
+\usepackage{tikz}
+\usepackage{subcaption}
+\usepackage{multicol}
+
+\usepackage{geometry}
+\geometry{legalpaper, margin=0.5in}
+
+\begin{document}
+\title{FYS4560 Project 2}
+\author{Ingrid A V Holm}
+\maketitle
+
+\section{Di-lepton production in $e^+e^-$ in the Standard Model}
+
+
+\begin{flushleft}
+Possible feynman diagrams for the process
+\begin{align*}
+e^-e^+ \rightarrow l^-l^+
+\end{align*}
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+\begin{feynman}
+\vertex (a) {\(e^-\)}; \vertex [below right=of a] (b) ; \vertex [below left=of b] (c) {\(e^+\)}; \vertex [right=of b] (s); \vertex [above right=of s] (s1) {\(l^+\)}; \vertex [below right=of s] (s2) {\(l^-\)}; 
+\diagram{
+(a) --[fermion] (b) --[fermion] (c); (b) --[photon, edge label={\(\gamma, Z\)}] (s); (s1) --[fermion] (s) --[fermion] (s2)
+};
+\end{feynman}
+\end{tikzpicture}
+\begin{tikzpicture}
+\begin{feynman}[small]
+\vertex (s1) {\(e^+\)} ; \vertex [below right=of s1] (s); \vertex [above right=of s] (s2) {\(e^+\)}; \vertex [below=of s] (p); \vertex [below right=of p] (p2) {\(e^-\)}; \vertex [below left=of p] (p1) {\(e^-\)};
+\diagram{
+(s2) --[fermion] (s) --[fermion] (s1), (p1) --[fermion] (p) --[fermion] (p2), (s) --[photon, edge label={\(\gamma, Z\)}] (p)
+};
+\end{feynman}
+\end{tikzpicture}
+\caption{Possible diagrams for di-lepton production.}
+\label{fig:: feynman ee-ll}
+\end{figure}
+\end{flushleft}
+
+\subsection{$e^+ e^- \rightarrow l^+ l^-$}
+\begin{flushleft}
+The feynman diagrams that contribute are shown in Fig. (\ref{fig:: ee- mu mu}).
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+\begin{feynman}[]
+\vertex (a) {\(e^-\)}; \vertex [below right=of a] (b) ; \vertex [below left=of b] (c) {\(e^+\)}; \vertex [right=of b] (s); \vertex [above right=of s] (s1) {\(\mu^+\)}; \vertex [below right=of s] (s2) {\(\mu^-\)}; 
+\diagram{
+(a) --[fermion] (b) --[fermion] (c); (b) --[photon, edge label={\(\gamma\)}] (s); (s1) --[fermion] (s) --[fermion] (s2)
+};
+\end{feynman}
+\end{tikzpicture}
+\begin{tikzpicture}
+\begin{feynman}
+\vertex (a) {\(e^-\)}; \vertex [below right=of a] (b) {\(\mu\)}; \vertex [below left=of b] (c) {\(e^+\)}; \vertex [right=of b] (s) {\(\nu\)}; \vertex [above right=of s] (s1) {\(\mu^+\)}; \vertex [below right=of s] (s2) {\(\mu^-\)}; 
+\diagram{
+(a) --[fermion, momentum={\(p_1\)}] (b) --[fermion] (c); (c) -- [momentum={\(p_2\)}] (b); 
+(b) --[photon, edge label={\( Z\)}] (s); 
+(s1) --[fermion] (s) --[fermion, momentum={\(k_2\)}] (s2);
+(s) --[, momentum={\(k_1\)}] (s1)
+};
+\end{feynman}
+\end{tikzpicture}
+\caption{Feynman diagrams for $e^+e^- \rightarrow \mu^+ \mu^-$.}
+\label{fig:: ee- mu mu}
+\end{figure}
+First calculate the $Z$-diagram, using the expressions
+\begin{align}
+g_v^f &= \frac{1}{2} T_f^3 - Q_f \sin^2 \theta_W,\\
+g_A^f &= \frac{1}{2} T_f^3.
+\end{align}
+\end{flushleft}
+
+\begin{align*}
+i\mathcal{M} &= \bar{v}^s(p_2) \big[i \frac{g}{\cos \theta_W} \gamma_{\mu} (g_v^f - g_A^f \gamma_5)\big] u^s(p_1) \Big(- \frac{ig_{\mu \nu}}{k^2 - M_Z^2 + i \epsilon} \Big) \bar{u}^s (k_2) \big[i \frac{g}{\cos \theta_W} \gamma_{\nu} (g_v^f - g_A^f \gamma_5)\big] v^s (k_1)\\
+&= 
+\frac{i g^2}{(k^2 - M_Z^2 + i \epsilon)\cos^2 \theta_W} 
+\bar{v}^s(p_2) \gamma_{\mu} (g_v^f - g_A^f \gamma_5) u^s(p_1)  \bar{u}^s (k_2) \gamma^{\mu} (g_v^f - g_A^f \gamma_5) v^s (k_1)\\
+\end{align*}
+\begin{align*}
+|\mathcal{M}|^2 &= \frac{g^4}{(k^2 - M_Z^2)^2\cos^4 \theta_W} 
+\Big( \bar{v}^s(p_2) \gamma_{\mu} (g_v^f - g_A^f \gamma_5) u^s(p_1) 
+\bar{u}^s(p_1) \gamma_{\nu} (g_v^f - g_A^f \gamma_5) v^s(p_2) 
+\Big)\\
+& \times
+\Big(
+ \bar{u}^s (k_2) \gamma^{\mu} (g_v^f - g_A^f \gamma_5) v^s (k_1)
+\bar{v}^s (k_1) \gamma^{\nu} (g_v^f - g_A^f \gamma_5) u^s (k_2) 
+  \Big)
+\end{align*}
+Take the trace and get (where $A^2 = \frac{g^4}{(k^2 - M_Z^2)^2\cos^4 \theta_W} $), and since $M_z >> m_e, m_{\mu}$, set $m_e = m_{\mu} \simeq 0$
+\begin{align*}
+\frac{1}{4} \sum_{spins} |\mathcal{M}|^2 &= A^2 \text{tr}
+\Big[ (\cancel{p}_2 -m_e)  
+\gamma_{\mu} (g_v^e - g_A^e \gamma_5) (\cancel{p}_1 + m_e) 
+\gamma_{\nu} (g_v^e - g_A^e \gamma_5)\Big]\\
+&\text{tr} \Big[
+(\cancel{k}_2 + m_{\mu}) \gamma^{\mu} (g_v^l - g_A^l \gamma_5) (\cancel{k}_1 - m_{\mu}) \gamma^{\nu} (g_v^l - g_A^l \gamma_5) 
+\Big]\\
+\text{(set mass to zero)}
+&= A^2 \text{tr}
+\Big[ \cancel{p}_2 
+\gamma_{\mu} (g_v^e - g_A^e \gamma_5) \cancel{p}_1 
+\gamma_{\nu} (g_v^e - g_A^e \gamma_5)\Big]\\
+&\text{tr} \Big[
+\cancel{k}_2 \gamma^{\mu} (g_v^l - g_A^l \gamma_5) \cancel{k}_1 \gamma^{\nu} (g_v^l - g_A^l \gamma_5) 
+\Big]\\
+&= A^2 \text{tr}
+\Big[ (g_v^e)^2 \cancel{p}_2 
+\gamma_{\mu} 
+\cancel{p}_1 
+\gamma_{\nu} 
++
+(g_A^e)^2
+\cancel{p}_2 
+\gamma_{\mu} \gamma_5
+ \cancel{p}_1 
+\gamma_{\nu} \gamma_5
+- g_v^e g_A^e 
+\cancel{p}_2 
+\gamma_{\mu} \cancel{p}_1 
+\gamma_{\nu} \gamma_5
+- g_v^e g_A^e \cancel{p}_2 
+\gamma_{\mu} \gamma_5 \cancel{p}_1 
+\gamma_{\nu} g_v^e \gamma_5)
+\Big] \\
+& \times
+\text{tr} \Big[
+(g_v^l)^2
+\cancel{k}_2 \gamma^{\mu} 
+ \cancel{k}_1 \gamma^{\nu} 
++(g_A^l)^2
+\cancel{k}_2 \gamma^{\mu} \gamma_5
+ \cancel{k}_1 \gamma^{\nu} \gamma_5 
+- g_v^l g_A^l 
+\cancel{k}_2 
+\gamma_{\mu} \cancel{k}_1 
+\gamma_{\nu} \gamma_5
+- g_v^l g_A^l \cancel{k}_2 
+\gamma_{\mu} \gamma_5 \cancel{k}_1 
+\gamma_{\nu}\gamma_5)
+\Big] \\
+&= A^2 \text{tr}
+\Big[  
+\big((g_A^e)^2 + (g_v^e)^2\big)
+\cancel{p}_2 
+\gamma_{\mu} \gamma_5
+ \cancel{p}_1 
+\gamma_{\nu} \gamma_5
+- 2 g_v^e g_A^e 
+\cancel{p}_2 
+\gamma_{\mu} \cancel{p}_1 
+\gamma_{\nu} \gamma_5 \Big]\\
+& \times
+\text{tr} \Big[
+\big( (g_v^l)^2 +(g_A^l)^2 \big)
+\cancel{k}_2 \gamma^{\mu} 
+ \cancel{k}_1 \gamma^{\nu} 
+- 2 g_v^l g_A^l 
+\cancel{k}_2 
+\gamma_{\mu} \cancel{k}_1 
+\gamma_{\nu} \gamma_5
+\Big] \\
+\end{align*}
+
+\begin{align*}
+&= A^2 \text{tr}
+\Big[
+ ((g_v^e)^2 + (g_A^e)^2)p_2^{\rho} p_1^{\sigma} \gamma_{\rho} 
+\gamma_{\mu} 
+ \gamma_{\sigma}
+\gamma_{\nu} 
+- 2 g_v^e g_A^e 
+p_2^{\rho}  p_1^{\sigma} \gamma_{\rho} \gamma_{\mu}\gamma_{\sigma} \gamma_{\nu} \gamma_5
+\Big]\\
+&\times \text{tr} \Big[
+((g_v^l)^2 + (g_A^l)^2) k_{2 \rho} k_{1 \sigma} \gamma^{\rho} \gamma^{\mu} 
+ \gamma^{\sigma} \gamma^{\nu}
+ - 2 g_v^l g_A^l 
+k_{2 \rho} k_{1 \sigma} \gamma^{\rho}
+\gamma_{\mu}  \gamma^{\sigma}
+\gamma_{\nu} \gamma_5 
+\Big]\\
+\end{align*}
+
+\begin{center}
+Now use the trace identities for the gamma matrices
+\begin{align*}
+&\text{tr} (\gamma^{\mu} \gamma^{\nu} \gamma^{\rho} \gamma^{\sigma}) = 4 (g^{\mu\nu} g^{\rho \sigma} - g^{\mu \rho}g^{\nu \sigma} + g^{\mu \sigma}g^{\nu \rho})\\
+& \text{tr} (\gamma^{\mu} \gamma^{\nu} \gamma^{\rho} \gamma^{\sigma} \gamma^5) = -4i \epsilon^{\mu \nu \rho \sigma}
+\end{align*}
+\end{center}
+\begin{align*}
+&= 16 A^2 \Big[
+ ((g_v^e)^2 + (g_A^e)^2)p_2^{\rho} p_1^{\sigma} \big(
+g_{\rho \mu} g_{\sigma \nu} 
+- g_{\rho \sigma} g_{\mu \nu}
++ g_{\rho \nu} g_{\mu \sigma}
+\big)
+- 2 g_v^e g_A^e p_2^{\rho}  p_1^{\sigma} 
+\epsilon_{\rho \mu \sigma \mu}
+\Big]\\
+&\times \Big[
+((g_v^l)^2 + (g_A^l)^2) k_{2 \rho} k_{1 \sigma} 
+\big(
+g^{\rho \mu} g^{\sigma \nu} 
+- g^{\rho \sigma} g^{\mu \nu}
++ g^{\rho \nu} g^{\mu \sigma}
+\big)
+ - 2 g_v^l g_A^l 
+k_{2 \rho} k_{1 \sigma} 
+\epsilon^{\rho \mu \sigma \nu}
+\Big]\\
+&= 16 A^2 \Big[
+ \{((g_v^e)^2 + (g_A^e)^2)
+ ((g_v^l)^2 + (g_A^l)^2)\} \cdot
+ p_2^{\rho} p_1^{\sigma} \big(
+g_{\rho \mu} g_{\sigma \nu} 
+- g_{\rho \sigma} g_{\mu \nu}
++ g_{\rho \nu} g_{\mu \sigma}
+\big) k_{2 \rho} k_{1 \sigma} 
+\big(
+g^{\rho \mu} g^{\sigma \nu} 
+- g^{\rho \sigma} g^{\mu \nu}
++ g^{\rho \nu} g^{\mu \sigma}
+\big)\\
+ &- \{((g_v^e)^2 + (g_A^e)^2)2 g_v^l g_A^l \} \cdot
+ p_2^{\rho} p_1^{\sigma} \big(
+g_{\rho \mu} g_{\sigma \nu} 
+- g_{\rho \sigma} g_{\mu \nu}
++ g_{\rho \nu} g_{\mu \sigma}
+\big)
+k_{2 \rho} k_{1 \sigma} 
+\epsilon^{\rho \mu \sigma \nu}
+)\\
+&- \{2 ((g_v^l)^2 + (g_A^l)^2) g_v^e g_A^e \} \cdot
+p_2^{\rho}  p_1^{\sigma} 
+\epsilon_{\rho \mu \sigma \mu}
+ k_{2 \rho} k_{1 \sigma} 
+\big(
+g^{\rho \mu} g^{\sigma \nu} 
+- g^{\rho \sigma} g^{\mu \nu}
++ g^{\rho \nu} g^{\mu \sigma}
+\big)\\
+& +\{4  g_v^e g_A^e g_v^l g_A^l  \} \cdot
+p_2^{\rho}  p_1^{\sigma} 
+\epsilon_{\rho \mu \sigma \mu} 
+k_{2 \rho} k_{1 \sigma} 
+\epsilon^{\rho \mu \sigma \nu}
+\Big]\\
+&= 16 A^2 \Big[
+ \{((g_v^e)^2 + (g_A^e)^2)  ((g_v^l)^2 + (g_A^l)^2)\} \cdot
+\big( p_{2 \mu} p_{1 \nu} 
+- p_{2 \sigma} p_1^{ \sigma} g_{\mu \nu}
++ p_{2 \nu} p_{1 \mu} \Big)\Big( k_2^{\mu} k_1^{\nu}
+- k_2^{\sigma} k_{1 \sigma} g^{\mu \nu}
++ k_2^{\nu} k_1^{\mu}\Big)\\
+ &-
+  \{2 ((g_v^e)^2 + (g_A^e)^2) g_v^l g_A^l \} \cdot
+ \big(
+ p_{2\mu} p_{1 \nu} - p_{2\sigma} p_1^{ \sigma} g_{\mu\nu}
++ p_{2\nu} p_{1 \mu} \big)
+k_{2 \rho} k_{1 \sigma} \epsilon^{\rho \mu \sigma \nu})\\
+&- 
+\{2 ((g_v^l)^2 + (g_A^l)^2) g_v^e g_A^e \} \cdot
+p_2^{\rho}  p_1^{\sigma} \epsilon_{\rho \mu \sigma \mu}
+\big( k_2^{ \mu} k_1^{ \nu}  - k_2^{ \sigma} k_{1 \sigma} g^{\mu \nu} + k_2^{ \nu} k_1^{ \mu}\big)\\
+& +
+24 \{4  g_v^e g_A^e g_v^l g_A^l  \} \cdot
+p_2^{\rho}  k_{2 \rho} p_1^{\sigma} k_{1 \sigma} 
+\Big]\\
+\end{align*}
+\begin{center}
+Where we've used
+\begin{align*}
+\epsilon_{\rho \mu \sigma \mu} \epsilon^{\rho \mu \sigma \mu} = n! = 4! = 24. 
+\end{align*}
+\end{center}
+\begin{align*}
+&= 16 A^2 \Big[
+ \{((g_v^e)^2 + (g_A^e)^2)  ((g_v^l)^2 + (g_A^l)^2)\} \cdot
+\Big[ 2(p_2 \cdot k_2) (p_1 \cdot k_1) + 2(p_1 \cdot k_2) (p_2 \cdot k_1) \Big]\\
+ &-
+\{2 ((g_v^e)^2 + (g_A^e)^2) g_v^l g_A^l \} \cdot
+\Big( \epsilon^{\rho \mu \sigma \nu}  \big(
+p_{2\mu} p_{1 \nu} - p_{2\sigma} p_1^{ \sigma} g_{\mu\nu}
++ p_{2\nu} p_{1 \mu} \big)
+k_{2 \rho} k_{1 \sigma} 
++ \epsilon^{\rho \mu \sigma \nu} p_{2 \rho}  p_{1 \sigma}  \big(k_{2 \mu} k_{1 \nu}  - k_{2 \sigma} k_{1 \sigma} g_{\mu \nu} + k_{2 \nu} k_{1 \mu}\big) \Big)\\
+\\
+& +
+24 \{4  g_v^e g_A^e g_v^l g_A^l  \} \cdot
+(p_2 \cdot k_2) (p_1 \cdot k_1)
+\Big]\\
+\end{align*}
+
+
+Note:
+\begin{align*} 
+ p_2^{\rho} p_1^{\sigma} 4\big(
+g_{\rho \mu} g_{\sigma \nu} 
+- g_{\rho \sigma} g_{\mu \nu}
++ g_{\rho \nu} g_{\mu \sigma}
+\Big)&
+4k_{2\rho} k_{1\sigma}\Big(
+g^{\rho \mu} g^{\sigma \nu}
+- g^{\rho \sigma} g^{\mu \nu}
++ g^{\rho \nu} g^{\mu \sigma}
+\Big)\\
+&= 
+\big(
+ p_{2 \mu} p_{1 \nu} 
+- p_{2 \sigma} p_1^{ \sigma} g_{\mu \nu}
++ p_{2 \nu} p_{1 \mu} 
+\Big)
+\Big(
+k_2^{\mu} k_1^{\nu}
+- k_2^{\sigma} k_{1 \sigma} g^{\mu \nu}
++ k_2^{\nu} k_1^{\mu}
+\Big)\\
+&= 
+\Big[
+(p_2 \cdot k_2) (p_1 \cdot k_1)
+- (k_2 \cdot k_1) (p_2 \cdot p_1)
++ (p_1 \cdot k_2) (p_2 \cdot k_1)\\
+&
+- (p_2 \cdot p_1) (k_2 \cdot k_1)
++ 4(k_2 \cdot k_1) (p_2 \cdot p_1)
+- (p_2 \cdot p_1) (k_2 \cdot k_1)\\
+& 
++(k_2 \cdot p_1) (p_2 \cdot k_1)
+- (k_2 \cdot k_1) (p_2 \cdot p_1)
++ (p_2 \cdot k_2) (p_1 \cdot k_1) \Big]\\
+&= 
+\Big[
+2(p_2 \cdot k_2) (p_1 \cdot k_1)
++ 2(p_1 \cdot k_2) (p_2 \cdot k_1) \Big]\\
+\end{align*}
+
+\subsection*{KInematics}
+
+
+
+
+
+
+\end{document}

@@ -57,8 +57,10 @@ Can interact through a combination of electroweak and strong interaction, but re
 \vertex [below right=of f] (h) {\(\bar{q}\)};
 \vertex [above=of h] (p2) {\(g\)};
 \diagram{ (a) --[fermion] (b) --[fermion] (c); 
-(b) --[photon, edge label={\(\gamma\)}] (d) --[fermion] (e) --[fermion] (g);
-(e) --[gluon] (p); (d) --[fermion] (f) --[fermion] (h);
+(b) --[photon, edge label={\(\gamma \)}] (d)
+ --[fermion] (e) --[fermion] (g);
+(e) --[gluon] (p); 
+(d) --[fermion] (f) --[fermion] (h); 
 (f) --[gluon] (p2)
 };
 \end{feynman}
@@ -86,7 +88,7 @@ Can interact through a combination of electroweak and strong interaction, but re
 \end{figure}
 \end{flushleft}
 \subsection{$e^+e^- \rightarrow \tilde{l}^+ \tilde{l}^-$}
-Is this a supersymmetric lepton? This decay can happen through the electromagnetic interaction QED. \textit{Allowed.}
+These are supersymmetric particles, which are very heavy, so this sets kinematic limitations on the process. This decay can happen through the electromagnetic interaction QED. \textit{Allowed.}
 
 \begin{figure}[H]
 \centering
@@ -746,7 +748,7 @@ The lightest particles in supersymmetry are the neutralino, $\tilde{\chi}_1^0$, 
 \begin{align}\label{susy eq 1}
 pp \rightarrow \chi^+_1 \chi^0_2 \rightarrow WZ \chi_1^0 \chi_1^0.
 \end{align}
-In $pp$-collisions top-squarks can be produced. These can decay into a top or bottom quark and a neutralino [bibtex=LEGG INN KILDE, ATLAS], namely
+In $pp$-collisions top-squarks can be produced. These can decay into a top or bottom quark and a neutralino (sett inn her), namely
 \begin{align*}
 \tilde{t}_1 \rightarrow t,b + \tilde{\chi}_1^0.
 \end{align*}
@@ -772,6 +774,11 @@ e^- & d'\\
 \tau^- & b'\\
 \end{pmatrix}.
 \end{align*}
+\end{flushleft}
+
+\subsection*{Grand Unifying Theories}
+\begin{flushleft}
+There is a grand unifying theory, that suggests that the coupling constants converge at a given energy scale. The proposed scale is at around $10^{15}$ GeV. The simplest GUT is the $U(5)$ symmetry, which contains the standard model $SU(3) \otimes SU(2) \otimes U(1)$. Group symmetries such as this allow for known particles to be interpreted as different states of a single particle field.
 \end{flushleft}
 
 \subsection*{Gauge and symmetries}
@@ -1182,7 +1189,7 @@ http://download.springer.com/static/pdf/404/art%253A10.1007%252FJHEP06%25282014%
 
 \cite{Aad2014}
 
-\bibliography{project1}
+
 
 \section*{Appendix A}
 
