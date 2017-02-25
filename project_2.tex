@@ -55,9 +55,81 @@ e^-e^+ \rightarrow l^-l^+
 \end{figure}
 \end{flushleft}
 
-\subsection{$e^+ e^- \rightarrow l^+ l^-$}
+\subsection{$e^- e^+ \rightarrow \mu^+ \mu^-$ through QED}
 \begin{flushleft}
-The feynman diagrams that contribute are shown in Fig. (\ref{fig:: ee- mu mu}).
+We find the expression for the matrix element from the Feynman diagram in Fig. (\ref{fig:: ee- mu mu}).
+\begin{align*}
+i \mathcal{M} &= \bar{v}^s (p_2) (-ie \gamma^{\mu}) u^{s'} (p_1) \big( \frac{-g_{\mu \nu}}{k^2} \big) \bar{u}^r(k_1) (-ie \gamma^{\nu})v^{r'}(k_2)\\
+&= \frac{i e^2}{s} \Big( \bar{v}^s (p_2) \gamma^{\mu} u^{s'} (p_1) \Big) \Big( \bar{u}^r(k_1) \gamma_{\mu}v^{r'}(k_2) \Big)
+\end{align*}
+Which gives for the matrix element squared
+\begin{align*}
+|\mathcal{M}|^2 &= \frac{e^4}{k^4} \Big( \bar{v} (p_2) \gamma^{\mu} u (p_1) \bar{u}(p_1) \gamma^{\nu} v(p_2) \Big) \Big(\bar{u} (k_1) \gamma_{\mu} v(k_2) \bar{v} (k_2) \gamma_{\nu} u(k_1) \Big)
+\end{align*}
+Averaging over spins and taking the trace we find
+\begin{align*}
+\frac{1}{4} \sum_{spins} |\mathcal{M}|^2 &= \frac{e^4}{k^4} \text{tr} \Big[ (\cancel{p}_2 - m_e) \gamma^{\mu} (\cancel{p}_1 + m_e) \gamma^{\nu}\Big] \text{tr} \Big[(\cancel{k}_1 + m_m) \gamma_{\mu} (\cancel{k}_2 - m_m) \gamma_{\nu} \Big].
+\end{align*}
+Since $m_e<<m_m$, we can set $m_e = 0$. Traces of odd numbers of gamma matrices are zero, so we can reduce the number of terms to
+\begin{align*}
+\frac{1}{4} \sum_{spins} |\mathcal{M}|^2 &= \frac{e^4}{4 k^4} \text{tr} \Big[ p_{2 \rho} p_{1 \sigma} \gamma^{\rho}\gamma^{\mu} \gamma^{\sigma} \gamma^{\nu}\Big] \text{tr} \Big[k_1^{\rho'} k_2^{\sigma'}\gamma_{\rho'}\gamma_{\mu} \gamma_{\sigma'} \gamma_{\nu} -m_m^2 \gamma_{\mu} \gamma_{\nu} \Big]\\
+&= \frac{e^4}{k^4} 4 \Bigg[ \Big(
+p_2^{\mu}p_1^{\nu} - (p_1 \cdot p_2)g^{\mu \nu} + p_2^{\nu} p_1^{\mu}
+\Big) \Big(k_{1\mu}k_{2\nu} - (k_2 \cdot k_1)g_{\mu \nu} + k_{1 \nu} k_{2 \mu} -m_m^2 g_{\mu \nu} \Big)\\
+&= \frac{e^4}{k^4} 8 \Bigg[ (p_1 \cdot k_2)(p_2 \cdot k_1) 
+ + (p_1 \cdot k_1)(p_2 \cdot k_2) -m_m^2 (p_1 \cdot p_2)\Bigg]\\
+\end{align*}
+\end{flushleft}
+
+\subsubsection{Kinematics}
+\begin{flushleft}
+Assume the electron and muon momenta make an angle $\theta$ between them. Using the Mandelstam variables, and assuming $m_e$ we then get
+\begin{align*}
+k^2 &= (p_1 + p_2)^2 = 4E^2 = s\\
+p_1 \cdot k_1 &= p_2 \cdot k_2 = E^2 - E|\textbf{k}| \cos \theta\\
+p_1 \cdot k_2 &= p_2 \cdot k_1 = E^2 + E|\textbf{k}| \cos \theta
+\end{align*}
+Putting this into our expression we get
+\begin{align*}
+\frac{1}{4} \sum_{spins} |\mathcal{M}|^2 &= \frac{8e^4}{16s^2} \Big[E^2(E -\textbf{k} \cos \theta)^2 + E^2 (E +\textbf{k} \cos \theta)^2 + 2m_m^2 E^2 \Big]\\
+&= e^4 \Big[ \Big(1 + \frac{m_m^2}{s} \Big) + \Big(1 - \frac{m_m^2}{s} \cos^2 \theta \Big) \Big]
+\end{align*}
+\end{flushleft}
+
+\subsubsection{Differential cross section}
+\begin{flushleft}
+We can find the differential cross section for this process. The formula for differential cross section of two final-state particles in the center of mass frame is
+\begin{align*}
+\Big( \frac{d \sigma}{d \Omega} \Big)_{CM} \frac{1}{2E_{\mathcal{A}}2 E_{\mathcal{B}} |v_{\mathcal{A}}-v_{\mathcal{B}}|} \frac{|\textbf{p}_1|}{(2 \pi)^2 4 E_{cm}}|\mathcal{M}(p_{\mathcal{A}}, p_{\mathcal{B}} \rightarrow p_1, p_2)|^2.
+\end{align*}
+For this specific calculation $|v_{\mathcal{A}}-v_{\mathcal{B}}|=2$, and $E_{\mathcal{A}}=E_{\mathcal{B}}= E_{cm}/2$, so we get
+\begin{align*}
+\frac{d \sigma}{d \Omega} &= \frac{1}{2 E_{cm}^2} \frac{|\textbf{k}|}{16 \pi^2 E_{cm}} \cdot \frac{1}{4} \sum_{spins} |\mathcal{M}|^2\\
+&= \frac{\alpha}{4 s} \sqrt{1 - \frac{m_m^2}{s}} \Big[ \Big( 1 + \frac{m_m^2}{s}\Big) + \Big( 1 - \frac{m_m^2}{s}\Big) \cos^2 \theta \Big]
+\end{align*}
+We can rewrite the differential solid angle as $d \Omega = \sin \theta d \theta d \phi = - d \cos \theta d \phi$, so we get
+\begin{align*}
+\frac{d \sigma}{d \cos \theta} = - \frac{\alpha}{4 s} \sqrt{1 - \frac{m_m^2}{s}} \Big[ \Big( 1 + \frac{m_m^2}{s}\Big) + \Big( 1 - \frac{m_m^2}{s}\Big) \cos^2 \theta \Big] d \phi
+\end{align*}
+\end{flushleft}
+
+\subsubsection{Cross section}
+\begin{flushleft}
+We can now find the total cross section by integrating over the angles
+\begin{align*}
+\sigma &= - \frac{\alpha}{4 s} \sqrt{1 - \frac{m_m^2}{s}} \int_{\Omega}   \Big[ \Big( 1 + \frac{m_m^2}{s}\Big) + \Big( 1 - \frac{m_m^2}{s}\Big) \cos^2 \theta \Big] d \phi d \cos \theta\\
+&= 2 \pi \frac{\alpha}{4 s} \sqrt{1 - \frac{m_m^2}{s}}  \Big[ \Big( 1 + \frac{m_m^2}{s}\Big)\cos \theta + \frac{1}{3} \Big( 1 - \frac{m_m^2}{s}\Big) \cos^3 \theta \Big]_{-1}^{1}\\
+&= 4 \pi \frac{\alpha}{4 s} \sqrt{1 - \frac{m_m^2}{s}}  \Big[ \Big( 1 + \frac{m_m^2}{s}\Big) + \frac{1}{3} \Big( 1 - \frac{m_m^2}{s}\Big) \Big]\\
+\sigma &=\frac{4 \pi \alpha}{3 s}\sqrt{1 - \frac{m_m^2}{s}}  \Big[1 + \frac{1}{2}\frac{m_m^2}{s}\Big]\\
+\end{align*}
+\end{flushleft}
+
+\pagebreak
+
+
+\subsection{$e^+ e^- \rightarrow \mu^+ \mu^-$}
+\begin{flushleft}
+The feynman diagrams that contribute in the electroweak interaction are shown in Fig. (\ref{fig:: ee- mu mu}).
 \begin{figure}[H]
 \centering
 \begin{tikzpicture}
@@ -82,13 +154,31 @@ The feynman diagrams that contribute are shown in Fig. (\ref{fig:: ee- mu mu}).
 \caption{Feynman diagrams for $e^+e^- \rightarrow \mu^+ \mu^-$.}
 \label{fig:: ee- mu mu}
 \end{figure}
-First calculate the $Z$-diagram, using the expressions
+The cross section for this process gets contributions from the purely electromagnetic ($\gamma$), the purely electroweak ($Z$) and the cross terms between them. We will calulate the terms separately. 
+\end{flushleft}
+
+\subsection{Purely electromagnetic interaction}
+
+\begin{flushleft}
+Here we can use the expression found earlier, but since we are working with a much larger energy scale (assume $E_e >> m_e$), we can set the muon mass to zero as well, $m_m = 0$, with yields the expression
+\begin{align*}
+\frac{1}{4} \sum_{spins} |\mathcal{M}|^2 
+&= e^4 \big( 1 + \cos^2 \theta \big)
+\end{align*}
+\end{flushleft}
+
+\subsection{Purely electroweak contribution} 
+\begin{flushleft}
+We will here use the expressions
 \begin{align}
 g_v^f &= \frac{1}{2} T_f^3 - Q_f \sin^2 \theta_W,\\
 g_A^f &= \frac{1}{2} T_f^3.
 \end{align}
 \end{flushleft}
 
+\begin{center}
+The expression for the matrix element from the feynman diagram in Fig. (\ref{fig:: ee- mu mu}) is
+\end{center}
 \begin{align*}
 i\mathcal{M} &= \bar{v}^s(p_2) \big[i \frac{g}{\cos \theta_W} \gamma_{\mu} (g_v^f - g_A^f \gamma_5)\big] u^s(p_1) \Big(- \frac{ig_{\mu \nu}}{k^2 - M_Z^2 + i \epsilon} \Big) \bar{u}^s (k_2) \big[i \frac{g}{\cos \theta_W} \gamma_{\nu} (g_v^f - g_A^f \gamma_5)\big] v^s (k_1)\\
 &= 
@@ -112,15 +202,15 @@ Take the trace and get (where $A^2 = \frac{g^4}{(k^2 - M_Z^2)^2\cos^4 \theta_W} 
 \Big[ (\cancel{p}_2 -m_e)  
 \gamma_{\mu} (g_v^e - g_A^e \gamma_5) (\cancel{p}_1 + m_e) 
 \gamma_{\nu} (g_v^e - g_A^e \gamma_5)\Big]\\
-&\text{tr} \Big[
+& \times \text{tr} \Big[
 (\cancel{k}_2 + m_{\mu}) \gamma^{\mu} (g_v^l - g_A^l \gamma_5) (\cancel{k}_1 - m_{\mu}) \gamma^{\nu} (g_v^l - g_A^l \gamma_5) 
 \Big]\\
 \text{(set mass to zero)}
 &= A^2 \text{tr}
 \Big[ \cancel{p}_2 
 \gamma_{\mu} (g_v^e - g_A^e \gamma_5) \cancel{p}_1 
-\gamma_{\nu} (g_v^e - g_A^e \gamma_5)\Big]\\
-&\text{tr} \Big[
+\gamma_{\nu} (g_v^e - g_A^e \gamma_5)\Big]
+\text{tr} \Big[
 \cancel{k}_2 \gamma^{\mu} (g_v^l - g_A^l \gamma_5) \cancel{k}_1 \gamma^{\nu} (g_v^l - g_A^l \gamma_5) 
 \Big]\\
 &= A^2 \text{tr}
@@ -140,7 +230,7 @@ Take the trace and get (where $A^2 = \frac{g^4}{(k^2 - M_Z^2)^2\cos^4 \theta_W} 
 \gamma_{\nu} \gamma_5
 - g_v^e g_A^e \cancel{p}_2 
 \gamma_{\mu} \gamma_5 \cancel{p}_1 
-\gamma_{\nu} g_v^e \gamma_5)
+\gamma_{\nu} g_v^e)
 \Big] \\
 & \times
 \text{tr} \Big[
@@ -162,9 +252,9 @@ Take the trace and get (where $A^2 = \frac{g^4}{(k^2 - M_Z^2)^2\cos^4 \theta_W} 
 \Big[  
 \big((g_A^e)^2 + (g_v^e)^2\big)
 \cancel{p}_2 
-\gamma_{\mu} \gamma_5
+\gamma_{\mu} 
  \cancel{p}_1 
-\gamma_{\nu} \gamma_5
+\gamma_{\nu} 
 - 2 g_v^e g_A^e 
 \cancel{p}_2 
 \gamma_{\mu} \cancel{p}_1 
@@ -179,9 +269,6 @@ Take the trace and get (where $A^2 = \frac{g^4}{(k^2 - M_Z^2)^2\cos^4 \theta_W} 
 \gamma_{\mu} \cancel{k}_1 
 \gamma_{\nu} \gamma_5
 \Big] \\
-\end{align*}
-
-\begin{align*}
 &= A^2 \text{tr}
 \Big[
  ((g_v^e)^2 + (g_A^e)^2)p_2^{\rho} p_1^{\sigma} \gamma_{\rho} 
@@ -195,28 +282,28 @@ p_2^{\rho}  p_1^{\sigma} \gamma_{\rho} \gamma_{\mu}\gamma_{\sigma} \gamma_{\nu} 
 ((g_v^l)^2 + (g_A^l)^2) k_{2 \rho} k_{1 \sigma} \gamma^{\rho} \gamma^{\mu} 
  \gamma^{\sigma} \gamma^{\nu}
  - 2 g_v^l g_A^l 
-k_{2 \rho} k_{1 \sigma} \gamma^{\rho}
-\gamma_{\mu}  \gamma^{\sigma}
+k_2^{ \rho} k_1^{ \sigma} \gamma_{\rho}
+\gamma_{\mu}  \gamma_{\sigma}
 \gamma_{\nu} \gamma_5 
 \Big]\\
 \end{align*}
 
 \begin{center}
 Now use the trace identities for the gamma matrices
-\begin{align*}
+\begin{align}
 &\text{tr} (\gamma^{\mu} \gamma^{\nu} \gamma^{\rho} \gamma^{\sigma}) = 4 (g^{\mu\nu} g^{\rho \sigma} - g^{\mu \rho}g^{\nu \sigma} + g^{\mu \sigma}g^{\nu \rho})\\
 & \text{tr} (\gamma^{\mu} \gamma^{\nu} \gamma^{\rho} \gamma^{\sigma} \gamma^5) = -4i \epsilon^{\mu \nu \rho \sigma}
-\end{align*}
+\end{align}
 \end{center}
 \begin{align*}
-&= 16 A^2 \Big[
+\frac{1}{4} \sum_{spins} |\mathcal{M}|^2 &= 16 A^2 \Big[
  ((g_v^e)^2 + (g_A^e)^2)p_2^{\rho} p_1^{\sigma} \big(
 g_{\rho \mu} g_{\sigma \nu} 
 - g_{\rho \sigma} g_{\mu \nu}
 + g_{\rho \nu} g_{\mu \sigma}
 \big)
 - 2 g_v^e g_A^e p_2^{\rho}  p_1^{\sigma} 
-\epsilon_{\rho \mu \sigma \mu}
+\epsilon_{\rho \mu \sigma \nu}
 \Big]\\
 &\times \Big[
 ((g_v^l)^2 + (g_A^l)^2) k_{2 \rho} k_{1 \sigma} 
@@ -242,7 +329,7 @@ g^{\rho \mu} g^{\sigma \nu}
 - g^{\rho \sigma} g^{\mu \nu}
 + g^{\rho \nu} g^{\mu \sigma}
 \big)\\
- &- \{((g_v^e)^2 + (g_A^e)^2)2 g_v^l g_A^l \} \cdot
+ &- \{2 ((g_v^e)^2 + (g_A^e)^2) g_v^l g_A^l \} \cdot
  p_2^{\rho} p_1^{\sigma} \big(
 g_{\rho \mu} g_{\sigma \nu} 
 - g_{\rho \sigma} g_{\mu \nu}
@@ -262,7 +349,7 @@ g^{\rho \mu} g^{\sigma \nu}
 \big)\\
 & +\{4  g_v^e g_A^e g_v^l g_A^l  \} \cdot
 p_2^{\rho}  p_1^{\sigma} 
-\epsilon_{\rho \mu \sigma \mu} 
+\epsilon_{\rho \mu \sigma \nu} 
 k_{2 \rho} k_{1 \sigma} 
 \epsilon^{\rho \mu \sigma \nu}
 \Big]\\
@@ -282,9 +369,8 @@ k_{2 \rho} k_{1 \sigma} \epsilon^{\rho \mu \sigma \nu})\\
 &- 
 \{2 ((g_v^l)^2 + (g_A^l)^2) g_v^e g_A^e \} \cdot
 p_2^{\rho}  p_1^{\sigma} \epsilon_{\rho \mu \sigma \mu}
-\big( k_2^{ \mu} k_1^{ \nu}  - k_2^{ \sigma} k_{1 \sigma} g^{\mu \nu} + k_2^{ \nu} k_1^{ \mu}\big)\\
-& +
-24 \{4  g_v^e g_A^e g_v^l g_A^l  \} \cdot
+\big( k_2^{ \mu} k_1^{ \nu}  - k_2^{ \sigma} k_{1 \sigma} g^{\mu \nu} + k_2^{ \nu} k_1^{ \mu}\big)+
+4! \{4  g_v^e g_A^e g_v^l g_A^l  \} \cdot
 p_2^{\rho}  k_{2 \rho} p_1^{\sigma} k_{1 \sigma} 
 \Big]\\
 \end{align*}
@@ -302,64 +388,247 @@ Where we've used
 \{2 ((g_v^e)^2 + (g_A^e)^2) g_v^l g_A^l \} \cdot
 \Big( \epsilon^{\rho \mu \sigma \nu}  \big(
 p_{2\mu} p_{1 \nu} - p_{2\sigma} p_1^{ \sigma} g_{\mu\nu}
-+ p_{2\nu} p_{1 \mu} \big)
-k_{2 \rho} k_{1 \sigma} 
-+ \epsilon^{\rho \mu \sigma \nu} p_{2 \rho}  p_{1 \sigma}  \big(k_{2 \mu} k_{1 \nu}  - k_{2 \sigma} k_{1 \sigma} g_{\mu \nu} + k_{2 \nu} k_{1 \mu}\big) \Big)\\
-\\
++ p_{2\nu} p_{1 \mu} \big) k_{2 \rho} k_{1 \sigma} 
++ \epsilon^{\rho \mu \sigma \nu} p_{2 \rho}  p_{1 \sigma}  \big(k_{2 \mu} k_{1 \nu}  - k_{2 \sigma} k_1^{ \sigma} g_{\mu \nu} + k_{2 \nu} k_{1 \mu}\big) \Big)\\
 & +
-24 \{4  g_v^e g_A^e g_v^l g_A^l  \} \cdot
+4! \{4  g_v^e g_A^e g_v^l g_A^l  \} \cdot
 (p_2 \cdot k_2) (p_1 \cdot k_1)
 \Big]\\
+&= I + II + III
 \end{align*}
+
+\subsubsection{Second term ($II$)}
+\begin{center}
+Take a look at the second term, and notice that $\epsilon^{\mu\nu \rho \sigma}$ is zero if any two indices are equal, so $\epsilon^{\mu \nu \rho \sigma} g_{\mu \nu}=0$, so we get
+\begin{flushleft}
+\begin{align*}
+&  \epsilon^{\rho \mu \sigma \nu}  \big(
+p_{2\mu} p_{1 \nu} - p_{2\sigma} p_1^{ \sigma} g_{\mu\nu}
++ p_{2\nu} p_{1 \mu} \big) k_{2 \rho} k_{1 \sigma} 
++ \epsilon^{\rho \mu \sigma \nu} p_{2 \rho}  p_{1 \sigma}  \big(k_{2 \mu} k_{1 \nu}  - k_{2 \sigma} k_1^{ \sigma} g_{\mu \nu} + k_{2 \nu} k_{1 \mu}\big) \\
+&= \epsilon^{\rho \mu \sigma \nu}  \big(
+p_{2\mu} p_{1 \nu}k_{2 \rho} k_{1 \sigma} 
++ p_{2\nu} p_{1 \mu} k_{2 \rho} k_{1 \sigma} \big) + \epsilon^{\rho \mu \sigma \nu} \big(
+ p_{2 \rho}  p_{1 \sigma} k_{2 \mu} k_{1 \nu}  + p_{2 \rho}  p_{1 \sigma}  k_{2 \nu} k_{1 \mu}\big) \\
+&= \epsilon^{\rho \mu \sigma \nu}  \big(
+p_{2\mu} p_{1 \nu}k_{2 \rho} k_{1 \sigma} 
++ p_{2\nu} p_{1 \mu} k_{2 \rho} k_{1 \sigma} \big) + \epsilon^{\rho \mu  \sigma \nu } \big(
+p_{2 \mu}  p_{1 \nu} k_{2 \rho} k_{1 \sigma}  + p_{2 \mu}  p_{1 \nu}  k_{2 \sigma} k_{1 \rho}\big) \\
+&= 2 \big( \epsilon^{\rho \mu  \sigma \nu } 
+p_{2 \mu}  p_{1 \nu} k_{2 \rho} k_{1 \sigma}  + \epsilon^{\rho \mu  \sigma \nu } p_{2 \mu}  p_{1 \nu}  k_{2 \sigma} k_{1 \rho}\big) \\
+&= 2 \big( \epsilon^{\rho \mu  \sigma \nu } 
+p_{2 \mu}  p_{1 \nu} k_{2 \rho} k_{1 \sigma}  
+- \epsilon^{\rho \mu  \sigma \nu } p_{2 \mu}  p_{1 \nu}  k_{2 \rho} k_{1 \sigma}\big) = \underline{0} \\
+\end{align*}
+\end{flushleft}
+\end{center}
+
+
+\subsubsection{First term ($I$)}
+\begin{align*} 
+ p_2^{\rho} p_1^{\sigma} 4\big(
+g_{\rho \mu} g_{\sigma \nu} - g_{\rho \sigma} g_{\mu \nu} + g_{\rho \nu} g_{\mu \sigma}
+\Big)& 4k_{2\rho} k_{1\sigma}\Big( g^{\rho \mu} g^{\sigma \nu} - g^{\rho \sigma} g^{\mu \nu}
++ g^{\rho \nu} g^{\mu \sigma} \Big)\\
+&= \big( p_{2 \mu} p_{1 \nu} - p_{2 \sigma} p_1^{ \sigma} g_{\mu \nu} + p_{2 \nu} p_{1 \mu} \Big)
+\Big(k_2^{\mu} k_1^{\nu} - k_2^{\sigma} k_{1 \sigma} g^{\mu \nu} + k_2^{\nu} k_1^{\mu}\Big)\\ &= 
+\Big[ (p_2 \cdot k_2) (p_1 \cdot k_1) - (k_2 \cdot k_1) (p_2 \cdot p_1) + (p_1 \cdot k_2) (p_2 \cdot k_1)\\ & - (p_2 \cdot p_1) (k_2 \cdot k_1) 
++ 4(k_2 \cdot k_1) (p_2 \cdot p_1) - (p_2 \cdot p_1) (k_2 \cdot k_1)\\ &  +(k_2 \cdot p_1) (p_2 \cdot k_1)
+- (k_2 \cdot k_1) (p_2 \cdot p_1) + (p_2 \cdot k_2) (p_1 \cdot k_1) \Big]\\ &= \Big[ 2(p_2 \cdot k_2) (p_1 \cdot k_1)  + 2(p_1 \cdot k_2) (p_2 \cdot k_1) \Big]\\
+\end{align*}
+
+\subsubsection*{Back to $|\mathcal{M}|^2$}
+\begin{center}
+\begin{align*}
+\frac{1}{4} \sum_{spins}| \mathcal{M}|^2 &= 16 A^2 \Big[
+ \{2 ((g_v^e)^2 + (g_A^e)^2)  ((g_v^l)^2 + (g_A^l)^2) + 4 \cdot 4! \cdot g_v^e g_A^e g_v^l g_A^l\} \cdot
+(p_2 \cdot k_2) (p_1 \cdot k_1)\\
+& + 2 \{((g_v^e)^2 + (g_A^e)^2)  ((g_v^l)^2 + (g_A^l)^2)\}(p_1 \cdot k_2) (p_2 \cdot k_1) \Big]\\
+&= 32 \frac{g^4}{(s - M_Z^2)^2\cos^4 \theta_W} \Big[
+ \{((g_v^e)^2 + (g_A^e)^2)  ((g_v^l)^2 + (g_A^l)^2) + 48 \cdot g_v^e g_A^e g_v^l g_A^l\} \cdot
+(p_2 \cdot k_2) (p_1 \cdot k_1)\\
+& +  \{((g_v^e)^2 + (g_A^e)^2)  ((g_v^l)^2 + (g_A^l)^2)\}(p_1 \cdot k_2) (p_2 \cdot k_1) \Big]\\
+\end{align*}
+\end{center}
+
+\subsection*{Kinematics}
+\begin{flushleft}
+We work in the center of mass-frame. Since $|\textbf{k}| = \sqrt{E^2 - m_{\mu}^2} \simeq \sqrt{E^2} = E$, we get
+\begin{align*}
+s &= k^2 = (p_1 + p_2)^2 = (k_1 + k_2)^2 = 4E^2\\
+(p_1 \cdot k_1) &= (p_2 \cdot k_2) = E^2 - E|\textbf{k}| \cos \theta \simeq E^2 (1 - \cos \theta) = \frac{1}{4} s (1 - \cos \theta)\\
+(p_1 \cdot k_2) &= (p_2 \cdot k_1) = E^2 + E|\textbf{k}| \cos \theta \simeq E^2(1+ \cos \theta) = \frac{1}{4} s (1 + \cos \theta)
+\end{align*}
+Putting this into the expression we get
+\begin{align*}
+\frac{1}{4} \sum_{spins}| \mathcal{M}|^2 = 
+32 \frac{g^4}{(s - M_Z^2)^2\cos^4 \theta_W} &\Big[
+ \{((g_v^e)^2 + (g_A^e)^2)  ((g_v^l)^2 + (g_A^l)^2) + 48 \cdot g_v^e g_A^e g_v^l g_A^l\} \cdot
+(\frac{1}{4} s (1 - \cos \theta))^2\\
+& +  \{((g_v^e)^2 + (g_A^e)^2)  ((g_v^l)^2 + (g_A^l)^2)\}(\frac{1}{4} s (1 + \cos \theta))^2 \Big]\\
+= 4 \frac{g^4s^2}{(s - M_Z^2)^2\cos^4 \theta_W} &\Big[
+ \{((g_v^e)^2 + (g_A^e)^2)  ((g_v^l)^2 + (g_A^l)^2) \} \cdot
+(1  + \cos^2 \theta)+ 24  g_v^e g_A^e g_v^l g_A^l  (1 -  \cos \theta)^2 \Big]\\
+\end{align*}
+We know that muons and electrons behave in the exact same way, only their mass is different, so we set $g_v^e = g_v^l$, $g_A^e=g_A^l$
+\begin{align*}
+\frac{1}{4} \sum_{spins}| \mathcal{M}|^2 &= 4 \frac{g^4s^2}{(s - M_Z^2)^2\cos^4 \theta_W} &\Big[
+((g_v^e)^2 + (g_A^e)^2)^2 \cdot
+(1  + \cos^2 \theta)+ 24  (g_v^e)^2 (g_A^e)^2 (1 -  \cos \theta)^2 \Big]\\
+&= 4 \frac{g^4s^2}{(s - M_Z^2)^2\cos^4 \theta_W} &\Big[
+((g_v^e)^2 + (g_A^e)^2)^2 \cdot
+(1  + \cos^2 \theta)+ 24  (g_v^e)^2 (g_A^e)^2 (1 -  2\cos \theta + \cos^2 \theta) \Big]\\
+\end{align*}
+
+\end{flushleft}
+
+\pagebreak
+
+\subsection{Cross terms}
+\begin{flushleft}
+We get the cross terms from the expression
+\begin{align*}
+|\mathcal{M}|^2 &= (i\mathcal{M}_{\gamma} + i\mathcal{M}_{Z})(-i\mathcal{M}_{\gamma}^* -i \mathcal{M}_{Z}^*)\\
+&= |\mathcal{M}_{\gamma}|^2 + \mathcal{M}_{\gamma} \mathcal{M}_Z^* + \mathcal{M}_Z \mathcal{M}_{\gamma}^* + |\mathcal{M}_Z|^2.
+\end{align*}
+We use the expressions we've found for $\mathcal{M}_{Z/\gamma}$, and write out the cross terms, which we will call $\mathcal{M}_{\times} = \mathcal{M}_{\gamma} \mathcal{M}_Z^* + \mathcal{M}_Z \mathcal{M}_{\gamma}^*$
+\begin{align*}
+\mathcal{M}_{\times}
+ &= \Bigg(\frac{i e^2}{s} \Big( \bar{v}^s (p_2) \gamma^{\mu} u^{s'} (p_1) \Big) \Big( \bar{u}^r(k_1) \gamma_{\mu}v^{r'}(k_2) \Big) \Bigg)\\
+& \times \Bigg(\frac{i g^2}{(k^2 - M_Z^2 + i \epsilon)\cos^2 \theta_W} 
+\bar{v}^s(p_2) \gamma_{\nu} (g_v^f - g_A^f \gamma_5) u^s(p_1)  \bar{u}^s (k_1) \gamma^{\nu} (g_v^f - g_A^f \gamma_5) v^s (k_2)\Bigg)^*\\
+&+ \Bigg(\frac{i g^2}{(k^2 - M_Z^2 + i \epsilon)\cos^2 \theta_W} 
+\bar{v}^s(p_2) \gamma_{\nu} (g_v^f - g_A^f \gamma_5) u^s(p_1)  \bar{u}^s (k_1) \gamma^{\nu} (g_v^f - g_A^f \gamma_5) v^s (k_2)\Bigg)\\
+&\times \Bigg(\frac{i e^2}{s} \Big( \bar{v}^s (p_2) \gamma^{\mu} u^{s'} (p_1) \Big) \Big( \bar{u}^r(k_1) \gamma_{\mu}v^{r'}(k_2) \Big) \Bigg)^*\\
+%Ny linje--------------------------------
+%----------------------------------------
+&= \frac{e^2 g^2}{s(k^2 - M_Z^2 + i \epsilon)\cos^2 \theta_W} \Bigg[
+ \Big( \bar{v} (p_2) \gamma^{\mu} u (p_1)  \bar{u}(p_1) \gamma_{\nu} (g_v^f - g_A^f \gamma_5)v(p_2) \Big) \Big( \bar{u}(k_1) \gamma_{\mu}v(k_2)  \bar{v} (k_2) \gamma^{\nu} (g_v^f - g_A^f \gamma_5)  u(k_1) \Big) \\
+&+ \big(
+\bar{v} (p_2) \gamma_{\nu} (g_v^f - g_A^f \gamma_5) u (p_1) 
+\bar{u} (p_1) \gamma^{\mu}  v (p_2) \big)
+\big(
+ \bar{u} (k_1) \gamma^{\nu} (g_v^f - g_A^f \gamma_5) v (k_2) \bar{v}(k_2) \gamma_{\mu} u(k_1)\big) \Bigg]\\
+\end{align*}
+
+Introduce the coefficient  $B = \frac{e^2 g^2}{s(k^2 - M_Z^2 + i \epsilon)\cos^2 \theta_W}$ and take the trace and average over spins, also note that we can move $\gamma^5 \cancel{p}\gamma^{\mu}= -\cancel{p} \gamma^5 \gamma^{\mu} = \cancel{p}\gamma^{\mu} \gamma^5$
+\begin{align*}
+\frac{1}{4B} \sum_{spins} \mathcal{M}_{\times} &= \text{tr} \Big[
+ (\cancel{p}_2 - m_e) \gamma^{\mu} (\cancel{p}_1 + m_e) \gamma_{\nu} (g_v^f - g_A^f \gamma_5) \Big] \text{tr} \Big[(\cancel{k}_1 + m_m) \gamma_{\mu} (\cancel{k}_2 - m_m) \gamma^{\nu} (g_v^f - g_A^f \gamma_5) \Big] \\
+&+ \text{tr} \Big[
+(\cancel{p}_2 - m_e) \gamma_{\nu}(\cancel{p}_1 + m_e) \gamma^{\mu} (g_v^f - g_A^f \gamma_5)  \Big]
+\text{tr}
+\Big[
+(\cancel{k}_1 +m_m) \gamma^{\nu}  (\cancel{k}_2 -m_m) \gamma_{\mu} (g_v^f - g_A^f \gamma_5) \Big] \\
+&= 2 \text{tr} \Big[
+ (\cancel{p}_2 - m_e) \gamma^{\mu} (\cancel{p}_1 + m_e) \gamma_{\nu} (g_v^f - g_A^f \gamma_5) \Big] \text{tr} \Big[(\cancel{k}_1 + m_m) \gamma_{\mu} (\cancel{k}_2 - m_m) \gamma^{\nu} (g_v^f - g_A^f \gamma_5) \Big]
+\end{align*}
+We can now set the muon- and electron masses to zero
+\begin{align*}
+\frac{1}{8B} \sum_{spins} \mathcal{M}_{\times} &=  \text{tr} \Big[ p_{2 \rho} p_{1 \sigma}\gamma^{\rho}
+\gamma^{\mu} \gamma^{\sigma} \gamma^{\nu} (g_v^f - g_A^f \gamma_5) \Big] \text{tr} \Big[ k_1^{\rho} k_2^{\sigma} \gamma_{\rho} \gamma_{\mu} \gamma_{\sigma} \gamma_{\nu} (g_v^f - g_A^f \gamma_5) \Big] \\
+&= \Big( p_{2 \rho} p_{1 \sigma} \big[ g_v^f(g^{\rho \mu} g^{\sigma \nu} - g^{\rho \sigma}g^{\mu \nu} + g^{\rho \nu}g^{\mu \sigma}) - g_A^f \epsilon^{\rho \mu \sigma \nu} \big] \Big)
+\Big( k_1^{\rho} k_2^{\sigma}  \big[ g_v^f (g_{\rho \mu} g_{\sigma \nu} - g_{\rho \sigma}g_{\mu \nu} + g_{\rho \nu}g_{\mu \sigma})- g_A^f \epsilon_{\rho \mu \sigma \nu}\big] \Big) \\
+&= \Big( g_v^f(p_2^{\mu} p_1^{\nu} - (p_1 \cdot p_2)g^{\mu \nu} + p_2^{\nu} p_1^{\mu}) - g_A^f p_{2 \rho} p_{1 \sigma}\epsilon^{\rho \mu \sigma \nu}  \Big)
+\Big(  g_v^f (k_{1 \mu} k_{2 \nu} - (k_1 \cdot k_2)g_{\mu \nu} + k_{1 \nu} k_{2 \mu})- g_A^f k_1^{\rho} k_2^{\sigma} \epsilon_{\rho \mu \sigma \nu} \Big) \\
+&= 
+g_v^f(p_2^{\mu} p_1^{\nu} - (p_1 \cdot p_2)g^{\mu \nu} + p_2^{\nu} p_1^{\mu})
+ g_v^f (k_{1 \mu} k_{2 \nu} - (k_1 \cdot k_2)g_{\mu \nu} + k_{1 \nu} k_{2 \mu}) \\
+&- g_A^f g_v^f \Big( p_{2 \rho} p_{1 \sigma}\epsilon^{\rho \mu \sigma \nu}
+(k_{1 \mu} k_{2 \nu} - (k_1 \cdot k_2)g_{\mu \nu} + k_{1 \nu} k_{2 \mu}) +(p_2^{\mu} p_1^{\nu} - (p_1 \cdot p_2)g^{\mu \nu} + p_2^{\nu} p_1^{\mu})
+k_1^{\rho} k_2^{\sigma} \epsilon_{\rho \mu \sigma \nu} \Big) \\
+&+ g_A^f p_{2 \rho} p_{1 \sigma}\epsilon^{\rho \mu \sigma \nu}g_A^f k_1^{\rho} k_2^{\sigma} \epsilon_{\rho \mu \sigma \nu} \\
+&= 2 (g_v^f)^2\Big[(p_2 \cdot k_2) (p_1 \cdot k_1)  + (p_1 \cdot k_2) (p_2 \cdot k_1) \Big] 
++ 4! (g_A^f)^2 (p_1 \cdot k_2)(p_2 \cdot k_1) \\
+\end{align*}
+\end{flushleft}
+
+\subsubsection*{Kinematics}
+\begin{flushleft}
+Using the kinematics derived in the previous calculation, we can simplify this expression
+\begin{align*}
+\frac{1}{4} \sum_{spins} |\mathcal{M}|_{\times} &= 4 B \Big((g_v^f)^2\Big[\frac{1}{16}s^2(1- \cos \theta)^2  + \frac{1}{16}s^2(1+ \cos \theta)^2 \Big] 
++ 12 (g_A^f)^2 \frac{1}{16}s^2(1+ \cos \theta)^2 \Big)\\
+&= \frac{1}{2} B s^2 \Big((g_v^f)^2 \Big[1+ \cos^2 \theta\Big] 
++ 6 (g_A^f)^2 (1+ \cos \theta)^2 \Big)\\
+&= \frac{1}{2} \frac{e^2 g^2}{s(s - M_Z^2)\cos^2 \theta_W} s^2 \Big((g_v^f)^2 \Big[1+ \cos^2 \theta\Big] 
++ 6 (g_A^f)^2 (1+ \cos \theta)^2 \Big)\\
+&= \frac{1}{2} \frac{\alpha^4 4^4 \pi^4}{s(s - M_Z^2)} 
+\frac{1}{\sin^2 \theta_W \cos^2 \theta_W}
+s^2 \Big((g_v^f)^2 \Big[1+ \cos^2 \theta\Big] 
++ 6 (g_A^f)^2 (1+ \cos \theta)^2 \Big)\\
+&= \frac{1}{2} \frac{\alpha^4 4^4 \pi^4}{s(s - M_Z^2)} 
+\frac{M_Z^2 G \sqrt{2}}{\alpha \pi}
+s^2 \Big((g_v^f)^2 \Big[1+ \cos^2 \theta\Big] 
++ 6 (g_A^f)^2 (1+ \cos \theta)^2 \Big)\\
+&= 128 \frac{\alpha^3 \pi^3M_Z^2 G}{s(s - M_Z^2)} 
+ \sqrt{2}
+s^2 \Big((g_v^f)^2 \Big[1+ \cos^2 \theta\Big] 
++ 6 (g_A^f)^2 (1+ \cos \theta)^2 \Big)\\
+\end{align*}
+\end{flushleft}
+
+\pagebreak
+
+\subsection{Combining the terms}
+\begin{flushleft}
+We can now combine the matrix element terms
+\begin{align*}
+\frac{1}{4} \sum_{spins} |\mathcal{M}| &=
+e^4 \big( 1 + \cos^2 \theta \big)\\
+&+ 4 \frac{g^4s^2}{(s - M_Z^2)^2\cos^4 \theta_W} \Big[
+((g_v^e)^2 + (g_A^e)^2)^2 \cdot
+(1  + \cos^2 \theta)+ 24  (g_v^e)^2 (g_A^e)^2 (1 -  \cos \theta)^2 \Big]\\
+&+ \frac{1}{2} \frac{e^2 g^2}{s(s - M_Z^2)\cos^2 \theta_W} s^2 \Big((g_v^f)^2 \Big[1+ \cos^2 \theta\Big] 
++ 6 (g_A^f)^2 (1+ 2 \cos \theta + \cos^2 \theta) \Big)\\ 
+&= e^4 \big( 1 + \cos^2 \theta \big)\\
+&+ 4 \frac{g^4s^2}{(s - M_Z^2)^2\cos^4 \theta_W} \Big[
+((g_v^e)^2 + (g_A^e)^2)^2 \cdot
+(1  + \cos^2 \theta)+ 24  (g_v^e)^2 (g_A^e)^2 (1 - 2 \cos \theta + \cos^2 \theta) \Big]\\
+&+ \frac{1}{2} \frac{e^2 g^2}{s(s - M_Z^2)\cos^2 \theta_W} s^2 \Big((g_v^f)^2 \Big[1+ \cos^2 \theta\Big] 
++ 6 (g_A^f)^2 (1+ 2 \cos \theta + \cos^2 \theta) \Big)\\ 
+&= \Bigg[e^4 +
+4 \frac{g^4s^2}{(s - M_Z^2)^2\cos^4 \theta_W}\big( ((g_v^e)^2 + (g_A^e)^2)^2
++ 24  (g_v^e)^2 (g_A^e)^2 \big)
++ \frac{1}{2} \frac{e^2 g^2}{s(s - M_Z^2)\cos^2 \theta_W} s^2
+((g_v^f)^2 + 6 (g_A^f)^2)
+  \Bigg](1 + \cos^2 \theta)\\
+&+ \Bigg[4 \frac{g^4s^2}{(s - M_Z^2)^2\cos^4 \theta_W} (-2 \cdot 24  (g_v^e)^2 (g_A^e)^2)  
++ \frac{1}{2} \frac{e^2 g^2}{s(s - M_Z^2)\cos^2 \theta_W} s^2 \cdot 2 \cdot g (g_A^f)^2
+\Bigg]  \cos \theta\\
+&= \Bigg[16 \pi^2 \alpha +
+4 \frac{g^4s^2}{(s - M_Z^2)^2\cos^4 \theta_W}\big( ((g_v^e)^2 + (g_A^e)^2)^2
++ 24  (g_v^e)^2 (g_A^e)^2 \big)\\
+&
++ \frac{1}{2} \frac{e^2 g^2}{s(s - M_Z^2)\cos^2 \theta_W} s^2
+((g_v^f)^2 + 6 (g_A^f)^2)
+  \Bigg](1 + \cos^2 \theta)\\
+&+ \Bigg[-192 \frac{g^4s^2}{(s - M_Z^2)^2\cos^4 \theta_W}  (g_v^e)^2 (g_A^e)^2  
++ \frac{e^2 g^2}{s(s - M_Z^2)\cos^2 \theta_W} s^2  \cdot g (g_A^f)^2
+\Bigg]  \cos \theta\\
+&= \Bigg[16 \pi^2 \alpha +
+4 \frac{e^4s^2}{(s - M_Z^2)^2
+}
+\frac{1}{\cos^4 \theta_W \sin^4 \theta_W}
+\big( ((g_v^e)^2 + (g_A^e)^2)^2
++ 24  (g_v^e)^2 (g_A^e)^2 \big)\\
+&
++ \frac{1}{2} \frac{e^2 g^2}{s(s - M_Z^2)\cos^2 \theta_W} s^2
+((g_v^f)^2 + 6 (g_A^f)^2)
+  \Bigg](1 + \cos^2 \theta)\\
+&+ \Bigg[-192 \frac{g^4s^2}{(s - M_Z^2)^2\cos^4 \theta_W}  (g_v^e)^2 (g_A^e)^2  
++ \frac{e^2 g^2}{s(s - M_Z^2)\cos^2 \theta_W} s^2  \cdot g (g_A^f)^2
+\Bigg]  \cos \theta
+\end{align*}
+\end{flushleft}
 
 
 Note:
-\begin{align*} 
- p_2^{\rho} p_1^{\sigma} 4\big(
-g_{\rho \mu} g_{\sigma \nu} 
-- g_{\rho \sigma} g_{\mu \nu}
-+ g_{\rho \nu} g_{\mu \sigma}
-\Big)&
-4k_{2\rho} k_{1\sigma}\Big(
-g^{\rho \mu} g^{\sigma \nu}
-- g^{\rho \sigma} g^{\mu \nu}
-+ g^{\rho \nu} g^{\mu \sigma}
-\Big)\\
-&= 
-\big(
- p_{2 \mu} p_{1 \nu} 
-- p_{2 \sigma} p_1^{ \sigma} g_{\mu \nu}
-+ p_{2 \nu} p_{1 \mu} 
-\Big)
-\Big(
-k_2^{\mu} k_1^{\nu}
-- k_2^{\sigma} k_{1 \sigma} g^{\mu \nu}
-+ k_2^{\nu} k_1^{\mu}
-\Big)\\
-&= 
-\Big[
-(p_2 \cdot k_2) (p_1 \cdot k_1)
-- (k_2 \cdot k_1) (p_2 \cdot p_1)
-+ (p_1 \cdot k_2) (p_2 \cdot k_1)\\
-&
-- (p_2 \cdot p_1) (k_2 \cdot k_1)
-+ 4(k_2 \cdot k_1) (p_2 \cdot p_1)
-- (p_2 \cdot p_1) (k_2 \cdot k_1)\\
-& 
-+(k_2 \cdot p_1) (p_2 \cdot k_1)
-- (k_2 \cdot k_1) (p_2 \cdot p_1)
-+ (p_2 \cdot k_2) (p_1 \cdot k_1) \Big]\\
-&= 
-\Big[
-2(p_2 \cdot k_2) (p_1 \cdot k_1)
-+ 2(p_1 \cdot k_2) (p_2 \cdot k_1) \Big]\\
+\begin{align*}
+\alpha = \frac{e^2}{4 \pi}\\
+m_Z = (\frac{\alpha \pi}{G \sqrt{2}})^{1/2} \frac{2}{\sin 2 \theta_W} = (\frac{\alpha \pi}{G \sqrt{2}})^{1/2} \frac{2}{2 \cos \theta_W \sin \theta_W}\\
+g \sin \theta_W = e\\
+m_z = \frac{m_w}{\cos \theta }=
 \end{align*}
-
-\subsection*{KInematics}
-
-
-
-
-
 
 \end{document}
